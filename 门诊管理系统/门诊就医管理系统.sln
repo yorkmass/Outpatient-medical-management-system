@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "门诊就医管理系统", "门诊就医管理系统\", "{14A14269-805B-466D-ABA7-387B83B48BC6}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_51983"
+		Debug.AspNetCompiler.PhysicalPath = "门诊就医管理系统\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51983\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_51983"
+		Release.AspNetCompiler.PhysicalPath = "门诊就医管理系统\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51983\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "51983"
+		SlnRelativePath = "门诊就医管理系统\"
+		DefaultWebSiteLanguage = "Visual C#"
+		StartServerOnDebug = "false"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14A14269-805B-466D-ABA7-387B83B48BC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14A14269-805B-466D-ABA7-387B83B48BC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E90B62EF-9E7E-4A5E-8047-014202E5DB61}
+	EndGlobalSection
+EndGlobal

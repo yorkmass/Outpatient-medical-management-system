@@ -1,0 +1,4221 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DBUtilityV2</name>
+    </assembly>
+    <members>
+        <member name="T:DBUtilityV2.ConnectionStringCeater">
+            <summary>
+            连接字符串帮助类
+            </summary>
+            <remarks>
+            2012-08-12日添加
+            </remarks>
+        </member>
+        <member name="M:DBUtilityV2.ConnectionStringCeater.GetOracleConnectionString(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            返回oracle连接字符串，这个连接方式，不需要在Oracle Net Manager管理中添加链接配置信息
+            </summary>
+            <param name="host">数据库IP</param>
+            <param name="port">数据库端口</param>
+            <param name="serverName">数据库名</param>
+            <param name="userName">用户名</param>
+            <param name="password">密码 </param>
+            <returns>oracle连接字符串</returns>
+            <remarks>
+            不依赖你的DNS.You create a connection string based on the format used in the tnsnames.ora file without the need to actually have one of these files on the client pc.  
+            </remarks>
+        </member>
+        <member name="M:DBUtilityV2.ConnectionStringCeater.GetOracleConnectionStringWithOledb(System.String,System.String,System.String)">
+            <summary>
+            采用微软数据库提供者连接oracle
+            </summary>
+            <param name="dataSource"></param>
+            <param name="uid"></param>
+            <param name="pwd"></param>
+        </member>
+        <member name="M:DBUtilityV2.ConnectionStringCeater.GetOracleUserId(System.String)">
+            <summary>
+            返回oracle连接字符串中的uid
+            </summary>
+            <param name="conn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.ConnectionStringCeater.GetOracleConnectionStringWithTnsInfomation(System.String,System.String,System.String)">
+            <summary>
+            返回oracle连接字符串，这种方式需要添加tns.ora配置文件
+            </summary>
+            <param name="dbName"></param>
+            <param name="uid"></param>
+            <param name="pwd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.ConnectionStringCeater.GetOracleConnnectionStringDDTek(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            返回DDTek.Oracle所需要的连接字符串
+            </summary>
+            <param name="hostIp"></param>
+            <param name="port"></param>
+            <param name="serviceName"></param>
+            <param name="uid"></param>
+            <param name="pwd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.ConnectionStringCeater.GetMysqlConnectionString(System.String,System.String,System.String,System.String)">
+            <summary>
+            返回mysql数据库连接字符串
+            </summary>
+            <param name="ip">
+            <example>
+            默认端口写法：www.ocp.pw
+            非默认端口写法：www.ocp.pw,3344
+            </example>
+            </param>
+            <param name="database"></param>
+            <param name="uid"></param>
+            <param name="pwd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.ConnectionStringCeater.GetMysqlConnectionString(System.String,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            返回mysql数据库连接字符串
+            </summary>
+            <param name="ip">
+            <example>
+            默认端口写法：www.ocp.pw
+            非默认端口写法：www.ocp.pw,3344
+            </example>
+            </param>
+            <param name="port">端口</param>
+            <param name="database"></param>
+            <param name="uid"></param>
+            <param name="pwd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.ConnectionStringCeater.GetMysqlConnectionStringNoPersist(System.String,System.String,System.String,System.String)">
+            <summary>
+            返回mysql数据库连接字符串
+            </summary>
+            <param name="ip"></param>
+            <param name="database"></param>
+            <param name="uid"></param>
+            <param name="pwd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.ConnectionStringCeater.GetMysqlConnectionStringNoPersistNoPooling(System.String,System.String,System.String,System.String)">
+            <summary>
+            返回mysql数据库连接字符串
+            </summary>
+            <param name="ip"></param>
+            <param name="database"></param>
+            <param name="uid"></param>
+            <param name="pwd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.ConnectionStringCeater.GetMssqlConnectionString(System.String,System.String,System.String,System.String)">
+            <summary>
+            返回mssql数据库连接字符串,此为标准安全连接方式
+            </summary>
+            <param name="ip">数据库ip</param>
+            <param name="database">数据库名称</param>
+            <param name="username">用户名</param>
+            <param name="password">密码</param>
+            <returns>mssql数据库连接字符串</returns>
+        </member>
+        <member name="M:DBUtilityV2.ConnectionStringCeater.GetMssqlConnectionString2(System.String,System.String,System.String,System.String)">
+            <summary>
+            返回mssql数据库连接字符串,此为可替代的标准安全连接方式
+            </summary>
+            <param name="ip">数据库ip</param>
+            <param name="database">数据库名称</param>
+            <param name="username">用户名</param>
+            <param name="password">密码</param>
+            <returns>mssql数据库连接字符串</returns>
+        </member>
+        <member name="M:DBUtilityV2.ConnectionStringCeater.GetMssqlexPressConnectionString(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            返回mssqlexpress数据库连接字符串,此为标准安全连接方式
+            </summary>
+            <param name="ip">数据库ip</param>
+            <param name="instanceName">实例名称</param>
+            <param name="database">数据库名称</param>
+            <param name="username">用户名</param>
+            <param name="password">密码</param>
+            <returns>mssql数据库连接字符串</returns>
+        </member>
+        <member name="M:DBUtilityV2.ConnectionStringCeater.GetSqliteConnectionString(System.String)">
+            <summary>
+            返回sqlite连接字符串
+            </summary>
+            <remarks>
+            2014-07-02日测试发现FailIfMissing=false报错，提示不支持此关键字
+            </remarks>
+            <param name="dbpath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.ConnectionStringCeater.GetAccess2007ConnectionString(System.String)">
+            <summary>
+            返回Access2007的连接字符串
+            </summary>
+            <param name="dbPath">数据库绝对路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.ConnectionStringCeater.GetAccess2007ConnectionStringStandSecurity(System.String)">
+            <summary>
+            Standard security 来自：http://www.connectionstrings.com/access/
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.ConnectionStringCeater.GetAccess2000(System.String)">
+            <summary>
+            返回Access2000的连接字符串
+            </summary>
+            <param name="dbPath">数据库的绝对路径</param>
+            <returns></returns>
+        </member>
+        <member name="T:DBUtilityV2.DalAction">
+            <summary>
+            主要是向上提供具体的sqlHelper类，通过判断连接字符串来分析数据库类型
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DalAction.SqlClient">
+            <summary>
+            mssql的数据库提供者
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DalAction.OleDb">
+            <summary>
+            oledb数据库提供者
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DalAction.OracleClient">
+            <summary>
+            Oracle的数据库提供者
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DalAction.SQLiteClient">
+            <summary>
+            sqlite的数据库提供者
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DalAction.MySqlClient">
+            <summary>
+            mysql的数据库提供者
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.DalAction.GetConnectionString(System.String)">
+            <summary>
+            处理连接字符串,此处可能爆出异常,需不需要捕获呢?
+            </summary>
+            <param name="connectionstring"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DalAction.GetDBClient(System.String)">
+            <summary>
+            返回DbHelper类的字符串 反射工厂模式
+            </summary>
+            <param name="connectionString">链接字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DalAction.GetDatabaseTypes(System.String)">
+            <summary>
+            根据连接字符串和providerName创建相应的sqlhelper实例
+            </summary>
+            <param name="providerName">数据库提供者</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DalAction.GetProvider(System.String)">
+            <summary>
+            根据连接字符串中的特征，取得特定DataProvider，例如：System.Data.OleDb、System.Data.OracleClient、System.Data.SQLite之类，默认返回MSSQL数据库提供者
+            </summary>
+            <param name="conn"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DBUtilityV2.DatabaseTypes">
+            <summary>
+            枚举：数据库类型
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DatabaseTypes.Sql">
+            <summary>
+            SQL数据库
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DatabaseTypes.MySql">
+            <summary>
+            MYSQL数据库
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DatabaseTypes.Oracle">
+            <summary>
+            Oracle数据库
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DatabaseTypes.OleDb">
+            <summary>
+            Access数据库
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DatabaseTypes.SQLite">
+            <summary>
+            SQLite数据库
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DatabaseTypes.DDTekOracle">
+            <summary>
+            Oracle数据库
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DatabaseTypes.OracleManagedDataAccess">
+            <summary>
+            oracle官方驱动
+            </summary>
+        </member>
+        <member name="T:DBUtilityV2.DataTableHelper">
+            <summary>
+            DataTable帮助类,内部类，主要是方便DBHelper
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.ToDataTable``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            转化一个DataTable
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.ToList``1(System.Data.DataTable,System.String[])">
+            <summary>
+            DataTable 转换为List 集合 此方法待测试
+            </summary>
+            <param name="dt">DataTable</param>
+            <param name="propertyName">要求数组中属性全部小写</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.ToDataTableTow(System.Collections.IList)">
+            <summary>
+            将集合类转换成DataTable
+            </summary>
+            <param name="list">集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.ToDataTable``1(System.Collections.Generic.IList{``0},System.String[])">
+            <summary>
+            将泛型集合类转换成DataTable
+            </summary>
+            <typeparam name="T">集合项类型</typeparam>
+            <param name="list">集合</param>
+            <param name="propertyName">需要返回的列的列名</param>
+            <returns>数据集(表)</returns>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.AddIdentityColumn(System.Data.DataTable)">
+            <summary>
+            给DataTable增加一个自增列
+            如果DataTable 存在 identityid 字段  则 直接返回DataTable 不做任何处理
+            </summary>
+            <param name="dt">DataTable</param>
+            <returns>返回Datatable 增加字段 identityid </returns>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.AddColumn(System.Data.DataTable,System.String,System.String)">
+            <summary>
+            给DataTable增加一个列
+            如果DataTable 存在 字段  则 直接返回DataTable 不做任何处理
+            </summary>
+            <param name="dt">DataTable</param>
+            <param name="columnName">列名</param>
+            <param name="columnType">列的类型</param>
+            <returns>返回Datatable 增加字段  </returns>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.AddColumn(System.Data.DataTable,System.String)">
+            <summary>
+            给DataTable增加一个列
+            如果DataTable 存在 字段  则 直接返回DataTable 不做任何处理
+            </summary>
+            <param name="dt">DataTable</param>
+            <param name="columnName">列名</param>
+            <returns>返回Datatable 增加字段  </returns>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.IsHaveRows(System.Data.DataTable)">
+            <summary>
+            检查DataTable 是否有数据行
+            </summary>
+            <param name="dt">DataTable</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.NotHaveRows(System.Data.DataTable)">
+            <summary>
+            检查DataTable是否没有值，如果DataTable为null或者没有内容，那么返回true，否则返回false
+            </summary>
+            <param name="dt">DataTable数据集</param>
+            <returns>如果DataTable为null或者没有内容，那么返回true，否则返回false</returns>
+            <remarks>
+            添加时间：20160116 
+            添加目的：方便检测DataTable是否没有值
+            </remarks>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.RemoveBlankDataRows(System.Data.DataTable,System.String,System.Data.DataTable@)">
+            <summary>
+            去掉空白行
+            </summary>
+            <param name="dt">要过滤的datatable</param>
+            <param name="flagColumn">以此列位标志，如果此行此列的数据为空，则删除此行</param>
+            <param name="dtBlank">保存空白行</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.DataTableToList``1(System.Data.DataTable)">
+            <summary>
+            DataTable转换成实体列表，不区分大小写字段,如果加上泛型的限制，则可能导致调用的时候有问题，不知道为什么
+            返回结果肯定不是null，但是需要判断是否有数据，因为里面已经new了一个List<T></T>
+            </summary>
+            <param name="table">datatable</param>
+            <returns></returns>
+            <remarks> http://www.cnblogs.com/codingsilence/archive/2011/05/26/2146530.html
+            </remarks>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.HackType(System.Object,System.Type)">
+            <summary>
+            这个类对可空类型进行判断转换，要不然会报错
+            </summary>
+            <param name="value"></param>
+            <param name="conversionType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.ListToDataTable``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            实体列表转换成DataTable
+            </summary>
+            <typeparam name="T">实体</typeparam>
+            <param name="list"> 实体列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.ToDataTable``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            将泛型集合类转换成DataTable
+            </summary>
+            <typeparam name="T">集合项类型</typeparam>
+            <param name="list">集合</param>
+            <returns>数据集(表)</returns>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.CreateTable(System.Collections.Generic.List{System.String})">
+            <summary>
+            根据nameList里面的字段创建一个表格,返回该表格的DataTable,该datatable的列全部是string类型
+            </summary>
+            <param name="nameList">包含字段信息的列表</param>
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.SetDataTableData(System.Int32,System.Collections.Generic.List{System.String})">
+            <summary>
+            设置datatable随机内容
+            </summary>
+            <param name="rowCount"></param>
+            <param name="lsColumn"></param>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.CreateTable(System.String)">
+            <summary>
+            通过字符列表创建表字段，字段格式可以是：
+            1) a,b,c,d,e
+            2) a|int,b|string,c|bool,d|decimal
+            </summary>
+            <param name="nameString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.GetDataRowArray(System.Data.DataRowCollection)">
+            <summary>
+            获得从DataRowCollection转换成的DataRow数组
+            </summary>
+            <param name="drc">DataRowCollection</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.GetTableFromRows(System.Data.DataRow[])">
+            <summary>
+            将DataRow数组转换成DataTable，注意行数组的每个元素须具有相同的数据结构，
+            否则当有元素长度大于第一个元素时，抛出异常
+            </summary>
+            <param name="rows">行数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.SortedTable(System.Data.DataTable,System.String[])">
+            <summary>
+            排序表的视图
+            </summary>
+            <param name="dt"></param>
+            <param name="sorts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.FilterDataTable(System.Data.DataTable,System.String)">
+            <summary>
+            根据条件过滤表的内容，如果条件为空，返回dt,如果没有查询到，则返回null
+            </summary>
+            <param name="dt"></param>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.MergeTable(System.Data.DataTable,System.Data.DataTable)">
+            <summary>
+            两结构相同DATATABLE 合并
+            </summary>
+            <param name="orgDt"></param>
+            <param name="newDt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.UniteDataTable2(System.Data.DataTable,System.Data.DataTable,System.String)">
+            <summary>
+            将两个列不同(结构不同)的DataTable合并成一个新的DataTable
+            </summary>
+            <param name="dataTable1">表1</param>
+            <param name="dataTable2">表2</param>
+            <param name="dtName">合并后新的表名</param>
+            <returns>合并后的新表</returns>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.FillData(System.Data.DataTable,System.Data.DataTable)">
+            <summary>
+            合并两个datatable
+            </summary>
+            <param name="dt1"></param>
+            <param name="dt2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.GetArrayFromOneColumns``1(System.Data.DataTable,System.String)">
+            <summary>
+            把的DataTable中某列转换成数组
+            </summary>
+            <param name="datatable">datatable</param>
+            <param name="columnNames">列名</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.GetPagedTable(System.Data.DataTable,System.Int32,System.Int32)">
+            <summary>
+            DataTable分页
+            </summary>
+            <param name="dt">DataTable</param>
+            <param name="pageIndex">页索引,注意：从1开始</param>
+            <param name="pageSize">每页大小</param>
+            <returns>分好页的DataTable数据</returns>              第1页        每页10条
+        </member>
+        <member name="M:DBUtilityV2.DataTableHelper.PageCount(System.Int32,System.Int32)">
+            <summary>
+            返回分页的页数
+            </summary>
+            <param name="count">总条数</param>
+            <param name="pagesize">每页显示多少条</param>
+            <returns>如果 结尾为0：则返回1</returns>
+        </member>
+        <member name="T:DBUtilityV2.DataType">
+            <summary>
+            DataType帮助类
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.DataType.GetDataType(System.Data.SqlDbType,DBUtilityV2.DatabaseTypes,System.Int32)">
+            <summary>
+            获取DataType的字符串形式
+            </summary>
+            <param name="sqlType"></param>
+            <param name="dalType"></param>
+            <param name="maxSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DataType.GetType(System.Data.SqlDbType)">
+            <summary>
+            返回数据库字段类型
+            </summary>
+            <param name="sqlType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DataType.GetSqlType(System.Type)">
+            <summary>
+            获取SqlDbType
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DataType.GetSqlType(System.String)">
+            <summary>
+            获取SqlDbType
+            </summary>
+            <param name="typeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DataType.GetDbType(System.String)">
+            <summary>
+            指定 .NET Framework 数据提供程序的字段、属性或 Parameter 对象的数据类型。
+            </summary>
+            <param name="typeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DataType.GetDbType(System.Type)">
+            <summary>
+            指定 .NET Framework 数据提供程序的字段、属性或 Parameter 对象的数据类型。
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DataType.GetGroupID(System.Data.SqlDbType)">
+            <summary>
+            取得数据类型分组，整型返回1，bit返回3，字符串返回0，时间返回2
+            </summary>
+            <param name="sqlDbType"></param>
+            <returns>整型返回1，bit返回3，字符串返回0，时间返回2</returns>
+        </member>
+        <member name="T:DBUtilityV2.DBHelperP">
+            <summary>
+            此类为DBUTilityV2的核心使用类，由于底层使用的是DbCommand等通用类，故此支持sql/mysql/sqlite/oracle等数据库
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DBHelperP.StrSqlTableNamesAndTableDescription">
+            <summary>
+            适用于sql2008的表说明sql字符串,仅仅测试过sql2008,其他尚未测试
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DBHelperP.StrSql2008">
+            <summary>
+            获取2008的列描述信息，默认取1000个表
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DBHelperP.StrSql2000">
+            <summary>
+            获取SQL2000的数据库架构信息
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DBHelperP.StrSqlOracle">
+            <summary>
+            获取oracle的表描述信息
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DBHelperP.StrMysql">
+            <summary>
+            获取mysql的列描述信息,这个只能获取单个表的列描述信息等
+            <remarks>
+            时间：20160307 去掉了  CASE WHEN extra = ‘auto_increment’THEN 1 ELSE 0 END AS `是否自增`, 环境为：mysql 5.7
+            </remarks>
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DBHelperP.databaseType">
+            <summary>
+            数据库类型
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DBHelperP.SqlVersion">
+            <summary>
+            如果数据库是sql,那么可以通过此字段来获取sql的版本
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DBHelperP.pre">
+            <summary>
+            参数前缀
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DBHelperP.ConnectionString">
+            <summary>
+            默认值
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DBHelperP.Timeout">
+            <summary>
+            默认超时时间120秒
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DBHelperP._dbClient">
+            <summary>
+            默认值，接口
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DBHelperP.TempSql">
+            <summary>
+            用于存储临时信息
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DBHelperP.DbParms">
+            <summary>
+            参数，AddParameter方法会把参数写入这个集合，故此，每次执行完后，需要手工调用一下Clear最好。
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DBHelperP.CommandProcedure">
+            <summary>
+            为存储过程而存在的一个变量,主要供上游方法调用其中的参数而存在，这个字段和下面的DicDbParameters的存在意义一样，就是调用的方法不一样而已
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.DBHelperP.DicDbParameters">
+            <summary>
+            存储所有的参数，以便后期查找数据
+            </summary>
+            <remarks>
+            加上这个主要是因为上面的CommandProcedure属性在某些情况下不能很好的用在事务中
+            </remarks>
+        </member>
+        <member name="F:DBUtilityV2.DBHelperP.MyException">
+            <summary>
+            错误信息,这里必须填写一个有参数的，否则会有默认值 “引发类型为“System.Exception”的异常。” 这样会引起误解
+            </summary>
+            <remarks>
+            添加时间：20160227
+            </remarks>
+            <code>
+            DBHelperP db=new DBHelperP();
+            db.MyException
+            </code>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.#ctor">
+            <summary>
+            默认构造函数,采用配置文件方式设置连接字符串,此处可能爆出异常 connectionStrings里面的Conn对应的value，不区分大小写
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="connectionstring">完整的连接字符串，或者是配置文件中的connectionStrings里面的Name</param>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.TestConnection">
+            <summary>
+            测试数据库是否能够连接
+            </summary>
+            <returns>成功连接返回true，否则返回false</returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.TestConnection(System.String@)">
+            <summary>
+            测试数据库是否能够连接，如果不成功，则重复尝试5次
+            </summary>
+            <param name="error">错误信息</param>
+            <returns>成功连接返回true，否则返回false</returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.GetVersion">
+            <summary>
+            获取sql版本信息
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.HandlePre">
+            <summary>
+            处理前缀
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteNonQuery(System.String)">
+            <summary>
+            执行SQL语句返回受影响的条数 返回值有四中情况，-2、-1、0、大于零，大体就是说，如果大于等于-1，那么说明至少没有发生异常
+            </summary>
+            <param name="cmdText">sql语句</param>
+            <returns>
+            如果返回-2，则说明有异常出现，请检查参数error 。对于 UPDATE、INSERT 和 DELETE 语句，返回值为该命令所影响的行数。 对于其他所有类型的语句，返回值为 -1
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteNonQuery(System.String,System.Int32)">
+            <summary>
+            执行SQL语句返回受影响的行数
+            </summary>
+            <param name="cmdText">sql语句</param>
+            <param name="timeout1">超时时间</param>
+            <returns>
+            如果返回-2，则说明有异常出现，请检查参数error 。对于 UPDATE、INSERT 和 DELETE 语句，返回值为该命令所影响的行数。 对于其他所有类型的语句，返回值为 -1
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteNonQuery(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行SQL语句返回受影响的条数 返回值有四中情况，-2、-1、0、大于零，大体就是说，如果大于等于-1，那么说明至少没有发生异常
+            </summary>
+            <param name="cmdText">sql语句</param>
+            <param name="parameterValues">参数数组</param>
+            <returns>
+            如果返回-2，则说明有异常出现，请检查错误日志 。对于 UPDATE、INSERT 和 DELETE 语句，返回值为该命令所影响的行数。 对于其他所有类型的语句，返回值为 -1。
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteNonQuery(System.String,System.String@,System.Data.Common.DbParameter[])">
+            <summary>
+            执行SQL语句返回受影响的条数。 返回值有四中情况，-2、-1、0、大于零，大体就是说，如果大于等于-1，那么说明至少没有发生异常
+            </summary>
+            <param name="cmdText">sql语句</param>
+            <param name="parameterValues"></param>
+            <param name="error">错误信息</param>
+            <returns>
+            如果返回-2，则说明有异常出现，请检查参数error 。对于 UPDATE、INSERT 和 DELETE 语句，返回值为该命令所影响的行数。 对于其他所有类型的语句，返回值为 -1
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteNonQuery(System.Data.CommandType,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行SQL语句 返回值有四中情况，-2、-1、0、大于零，大体就是说，如果大于等于-1，那么说明至少没有发生异常
+            </summary>
+            <param name="cmdType">CommandType对象</param>
+            <param name="cmdText">sql语句或者是存储过程名称</param>
+            <param name="parameterValues">参数数组</param>
+            <returns>
+            如果返回-2，则说明有异常出现，请检查错误日志 。对于 UPDATE、INSERT 和 DELETE 语句，返回值为该命令所影响的行数。 对于其他所有类型的语句，返回值为 -1。
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteNonQuery(System.Data.CommandType,System.String,System.Int32,System.Data.Common.DbParameter[])">
+            <summary>
+            执行SQL语句 返回值有四中情况，-2、-1、0、大于零，大体就是说，如果大于等于-1，那么说明至少没有发生异常
+            </summary>
+            <param name="cmdType"></param>
+            <param name="cmdText"></param>
+            <param name="timeout1">设置或返回长整型值，该值指示等待命令执行的时间（单位为秒）。默认值为 30。此参数权重大于成员变量中的超时值</param>
+            <param name="parameterValues"></param>
+            <returns>
+            如果返回-2，则说明有异常出现，请检查错误日志 。对于 UPDATE、INSERT 和 DELETE 语句，返回值为该命令所影响的行数。 对于其他所有类型的语句，返回值为 -1。
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteNonQuery(System.Data.CommandType,System.String,System.Int32,System.String@,System.Data.Common.DbParameter[])">
+            <summary>
+            执行SQL语句,异常均被catch,故此,需要判断返回值进行是否出错判断,有异常,会自动回滚
+            故此，返回值有四中情况，-2、-1、0、大于零，大体就是说，如果大于等于-1，那么说明至少没有发生异常
+            </summary>
+            <param name="cmdType"></param>
+            <param name="cmdText">sql语句或者存储过程</param>
+            <param name="timeout">设置或返回长整型值，该值指示等待命令执行的时间（单位为秒）。默认值为 30。此参数权重大于成员变量中的超时值</param>
+            <param name="error">错误信息</param>
+            <param name="parameterValues">参数数组</param>
+            <returns>
+            如果返回-2，则说明有异常出现，请检查错误日志 。对于 UPDATE、INSERT 和 DELETE 语句，返回值为该命令所影响的行数。 对于其他所有类型的语句，返回值为 -1。
+            故此，返回值有四中情况，-2、-1、0、大于零，大体就是说，如果大于等于-1，那么说明至少没有发生异常
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteScalar(System.String)">
+            <summary>
+            返回第一行第一列的数据或者空引用
+            </summary>
+            <param name="cmdText">sql语句</param>
+            <returns>
+            返回第一行第一列的数据或者空引用,如果返回-2，那么请特别检查下异常文件日志。
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteScalar(System.String,System.Int32)">
+            <summary>
+            返回第一行第一列的数据或者空引用
+            </summary>
+            <param name="cmdText">sql语句，不能是存储过程名称</param>
+            <param name="timeout">超时时间</param>
+            <returns>
+            返回第一行第一列的数据或者空引用,如果返回-2，那么请特别检查下异常文件日志。
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteScalar(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            返回第一行第一列的数据或者空引用
+            </summary>
+            <param name="cmdText">sql语句，不能是存储过程名称</param>
+            <param name="parameterValues">参数数组</param>
+            <returns>
+            返回第一行第一列的数据或者空引用,如果返回-2，那么请特别检查下异常文件日志。
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteScalar(System.Data.CommandType,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            返回第一行第一列的数据或者空引用,如果返回-2，那么可能需要您检查异常文件日志了。
+            </summary>
+            <param name="cmdType">CommandType类型</param>
+            <param name="cmdText">sql语句或者存储过程名称</param>
+            <param name="parameterValues">参数集合</param>
+            <returns>
+            返回第一行第一列的数据或者空引用,如果返回-2，那么请特别检查下异常文件日志。
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteScalar(System.Data.CommandType,System.String,System.Int32,System.Data.Common.DbParameter[])">
+            <summary>
+            返回第一行第一列的数据或者空引用,如果返回-2，那么请特别检查下异常文件日志。
+            </summary>
+            <param name="cmdType">CommandType类型</param>
+            <param name="cmdText">sql语句或者存储过程名称</param>
+            <param name="timeout">设置或返回长整型值，该值指示等待命令执行的时间（单位为秒）。默认值为 30。</param>
+            <param name="parameterValues"></param>
+            <returns>
+            返回第一行第一列的数据或者空引用,如果返回-2，那么请特别检查下异常文件日志。
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteScalar(System.Data.CommandType,System.String,System.Int32,System.String@,System.Data.Common.DbParameter[])">
+            <summary>
+            返回第一行第一列的数据或者空引用,如果返回-2，那么请特别检查下异常文件日志。
+            </summary>
+            <param name="cmdType">执行类型</param>
+            <param name="cmdText">sql语句或者存储过程名称</param>
+            <param name="timeout">设置或返回长整型值，该值指示等待命令执行的时间（单位为秒）。默认值为 30。</param>
+            <param name="error">错误信息</param>
+            <param name="parameterValues">参数数组</param>
+            <returns>
+            返回第一行第一列的数据或者空引用,如果返回-2，那么请特别检查下异常文件日志。
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteReader(System.Data.CommandType,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            返回一个DbDataReader
+            </summary>
+            <param name="cmdType"></param>
+            <param name="cmdText"></param>
+            <param name="parameterValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteReader(System.Data.CommandType,System.String,System.Int32,System.Data.Common.DbParameter[])">
+            <summary>
+            返回一个DbDataReader
+            </summary>
+            <param name="cmdType"></param>
+            <param name="cmdText"></param>
+            <param name="timeout"></param>
+            <param name="parameterValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteReader(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            返回一个DbDataReader
+            </summary>
+            <param name="cmdText"></param>
+            <param name="parameterValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteReader(System.String)">
+            <summary>
+            返回一个DbDataReader
+            </summary>
+            <param name="cmdText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteReader(System.String,System.Int32)">
+            <summary>
+            返回一个DbDataReader
+            </summary>
+            <param name="cmdText"></param>
+            <param name="timeout"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteDataSet(System.String)">
+            <summary>
+            返回单表或视图的DataSet
+            </summary>
+            <param name="tableName">表名</param>
+            <returns>
+            返回一个DataSet,如果返回的是null，那么请特别检查下日志文件。
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteDataSet(System.String,System.Int32)">
+            <summary>
+            返回一个DataSet
+            </summary>
+            <param name="cmdText">sql语句，不能是存储过程名称</param>
+            <param name="timeout">超时时间</param>
+            <returns>
+            返回一个DataSet,如果返回的是null，那么请特别检查下日志文件。
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteDataSet(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            返回DataSet
+            </summary>
+            <param name="cmdText">sql语句，不能是存储过程名称</param>
+            <param name="parameterValues">参数</param>
+            <returns>
+            返回一个DataSet,如果返回的是null，那么请特别检查下日志文件。
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteDataSet(System.Data.CommandType,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            返回一个DataSet
+            </summary>
+            <param name="cmdType">CommandType类型</param>
+            <param name="cmdText">sql语句或者存储过程</param>
+            <param name="parameterValues"></param>
+            <returns>
+            返回一个DataSet,如果返回的是null，那么请特别检查下日志文件。
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteDataSet(System.Data.CommandType,System.String,System.Int32,System.Data.Common.DbParameter[])">
+            <summary>
+            返回一个DataSet,如果返回的是null，那么请特别检查下日志文件。
+            </summary>
+            <param name="cmdType"></param>
+            <param name="cmdText"></param>
+            <param name="timeout"></param>
+            <param name="parameterValues">可选的参数</param>
+            <returns>
+            返回一个DataSet,如果返回的是null，那么请特别检查下日志文件。
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteDataSet(System.Data.CommandType,System.String,System.Int32,System.String@,System.Data.Common.DbParameter[])">
+            <summary>
+            返回一个DataSet,如果返回的是null，那么轻特别检查下日志文件。
+            </summary>
+            <param name="cmdType"></param>
+            <param name="cmdText"></param>
+            <param name="timeout1">超时时间，单位秒，如果为null或者小于30，则默认为30秒</param>
+            <param name="error">错误信息</param>
+            <param name="parameterValues">可选的参数</param>
+            <returns>
+            返回一个DataSet,如果返回的是null，那么请特别检查下日志文件。
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteDataTable(System.Data.CommandType,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            返回DataTable ,返回DataTable的一个副本，使得可以直接添加到一个DataSet中,这个datatable需要判断是否有值即可
+            </summary>
+            <param name="cmdType">CommandType对象</param>
+            <param name="cmdText">sql字符串或者存储过程名称</param>
+            <param name="parameterValues">DbParameter数组</param>
+            <returns>
+            返回值可能为null，也可能为一个Datatable，这个DataTable可能有数据也可能没有数据
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteDataTable(System.Data.CommandType,System.String,System.Int32,System.Data.Common.DbParameter[])">
+            <summary>
+            返回DataTable ，返回DataTable的一个副本，使得可以直接添加到一个DataSet中
+            </summary>
+            <param name="cmdType"></param>
+            <param name="cmdText"></param>
+            <param name="timeout">超时</param>
+            <param name="parameterValues"></param>
+            <returns>
+            返回值可能为null，也可能为一个Datatable，这个DataTable可能有数据也可能没有数据
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteDataTable(System.Data.CommandType,System.String,System.Int32,System.String@,System.Data.Common.DbParameter[])">
+            <summary>
+            返回DataTable，返回DataTable的一个副本，使得可以直接添加到另一个DataSet中 这个datatable肯定不是null的，但是不一定有值，故此需要判断是否有值
+            </summary>
+            <param name="cmdType"></param>
+            <param name="cmdText"></param>
+            <param name="timeout"></param>
+            <param name="error"></param>
+            <param name="parameterValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteDataTable(System.String,System.Int32,System.String@,System.Data.Common.DbParameter[])">
+            <summary>
+            返回一个DataTable
+            </summary>
+            <param name="cmdText">sql语句</param>
+            <param name="timeout2">超时时间，时间单位为秒</param>
+            <param name="error">错误信息</param>
+            <param name="parameterValues">参数数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteDataTable(System.String,System.Int32,System.Data.Common.DbParameter[])">
+            <summary>
+            返回一个DataTable
+            </summary>
+            <param name="cmdText">sql语句</param>
+            <param name="timeout">超时时间</param>
+            <param name="parameterValues">参数数组</param>
+            <returns>
+            返回值可能为null，也可能为一个Datatable，这个DataTable可能有数据也可能没有数据
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteDataTable(System.String,System.String@,System.Data.Common.DbParameter[])">
+            <summary>
+            返回一个DataTable
+            </summary>
+            <param name="cmdText">sql语句</param>
+            <param name="error">错误信息</param>
+            <param name="parameterValues">参数数组</param>
+            <returns>
+            返回值可能为null，也可能为一个Datatable，这个DataTable可能有数据也可能没有数据
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteDataTable(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            返回一个DataTable
+            </summary>
+            <param name="cmdText"></param>
+            <param name="parameterValues"></param>
+            <returns>
+            返回值可能为null，也可能为一个Datatable，这个DataTable可能有数据也可能没有数据
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecuteDataTable(System.String)">
+            <summary>
+            返回DataTable
+            </summary>
+            <param name="cmdtext">sql语句</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.SqlBulkCopyImport(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Data.DataTable)">
+            <summary>
+            批量导入数据
+            </summary>
+            <param name="maplistSource">源列名 如果数据源和目标表具有相同的列数，并且数据源中每个源列的序号位置匹配相应目标列的序号位置，则无需 ColumnMappings 集合。 但是如果列计数不同，或序号位置不一致，则必须使用 ColumnMappings，以确保将数据复制到正确的列中。 </param>
+            <param name="maplistDestination">目标表列名</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.SqlBulkCopyImport(System.Data.DataTable,System.String,System.String@)">
+            <summary>
+            批量导入数据，字段顺序需要完全对应，否则出错
+            </summary>
+            <param name="dt"></param>
+            <param name="tableName"></param>
+            <param name="error"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.SqlBulkCopyImport(System.Data.DataTable,System.String,System.String@,System.Action{System.Object,System.Data.SqlClient.SqlRowsCopiedEventArgs},System.Int32)">
+            <summary>
+            批量导入,加入了事务，保留源标识值。 如果未指定，则由目标分配标识值。检查约束 对于有自动增长的主键的数据，插入的时候仍有些问题
+            </summary>
+            <param name="TableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <param name="error">错误信息</param>
+            <param name="act">委托</param>
+            <param name="iNotifyAfter">数量，到达这个数量后，触发事件</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.SqlBulkCopyImport(System.Data.DataTable,System.String,System.String@,System.Action{System.Object,System.Data.SqlClient.SqlRowsCopiedEventArgs},System.Int32,System.Int32)">
+            <summary>
+            批量导入,加入了事务，保留源标识值。 如果未指定，则由目标分配标识值。检查约束 对于有自动增长的主键的数据，插入的时候仍有些问题
+            </summary>
+            <param name="TableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <param name="error">错误信息</param>
+            <param name="act">委托</param>
+            <param name="iNotifyAfter">数量，到达这个数量后，触发事件</param>
+            <param name="timeout">超时时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.Query(System.String,System.String,System.Int32,System.String,System.Data.Common.DbParameter[],System.String@)">
+            <summary>
+            返回一个DataTable,需要判断是否有值，不需要判断是否为null
+            </summary>
+            <param name="tableName">表名</param>
+            <param name="where">条件，如果为空或者null，则表示获取全部</param>
+            <param name="timeout">超时时间，如果参数小于或者等于默认超时，那么采用默认值</param>
+            <param name="columns">列名，例如“id,name,age”,如果null或者空，则表示获取全部</param>
+            <param name="dbparameters">参数，如果没有参数，那么填写null</param>
+            <param name="error">错误信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.Delete(System.String,System.String)">
+            <summary>
+            删除数据，返回受影响的行数
+            </summary>
+            <param name="tablename">表名</param>
+            <param name="where">不带有where的条件表达式，就是有where字符串也会自动替换为空字符串</param>
+            <returns>
+            如果返回-2，则说明有异常出现，请检查错误日志 。对于 UPDATE、INSERT 和 DELETE 语句，返回值为该命令所影响的行数。 对于其他所有类型的语句，返回值为 -1。
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecutePagingDataTable(System.String,System.String,System.Int32,System.Int32,System.Data.Common.DbParameter[])">
+            <summary>
+            取得分页DataTable
+            </summary>
+            <param name="tableName">表名或者(xxx) v形式视图名称</param>
+            <param name="where">条件表达式 加不加where都可以，加了也没用</param>
+            <param name="pageIndex">页码</param>
+            <param name="pageSize">页数</param>
+            <param name="parameterValues">参数</param>
+            <returns>取得分页DataTable</returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecutePagingDataTable(System.String,System.String,System.String,System.Int32,System.Int32,System.Data.Common.DbParameter[])">
+            <summary>
+            取得分页DataTable
+            </summary>
+            <param name="tableName">表名或者(xxx) v形式视图名称</param>
+            <param name="primaryKey">主键</param>
+            <param name="where">条件表达式 加不加where都可以，加了也没用</param>
+            <param name="pageIndex">页码</param>
+            <param name="pageSize">页数</param>
+            <param name="parameterValues">参数</param>
+            <returns>取得分页DataTable</returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecutePagingDataTable(System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            取得分页DataTable
+            </summary>
+            <param name="tableName">表名或者(xxx) v形式视图名称</param>
+            <param name="primaryKey">主键</param>
+            <param name="where">条件表达式 加不加where都可以，加了也没用</param>
+            <param name="pageIndex">页码</param>
+            <param name="pageSize">页数</param>
+            <param name="columns">列，如果为空，则表示获取全部</param>
+            <param name="parameterValues">参数</param>
+            <returns>取得分页DataTable</returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecutePagingDataTable(System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.String@,System.Data.Common.DbParameter[])">
+            <summary>
+            取得分页DataTable,这是最基础的类，其他分页类都是调用此类，肯定不为null，但是需要判断是否有值
+            </summary>
+            <param name="tableName">表名或者(xxx) v形式视图名称</param>
+            <param name="primaryKey">主键</param>
+            <param name="where">条件表达式 加不加where都可以，加了也没用</param>
+            <param name="pageIndex">页码</param>
+            <param name="pageSize">页数</param>
+            <param name="columns">错误信息</param>
+            <param name="error">错误信息</param>
+            <param name="parameterValues">参数</param>
+            <returns>取得分页DataTable</returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecutePagingDataTable(System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.String@,System.Int32,System.Data.Common.DbParameter[])">
+            <summary>
+            取得分页DataTable,这是最基础的类，其他分页类都是调用此类
+            </summary>
+            <param name="tableName">表名或者(xxx) v形式视图名称</param>
+            <param name="primaryKey">主键</param>
+            <param name="where">条件表达式 加不加where都可以，加了也没用</param>
+            <param name="pageIndex">页码,0表示获取全部信息</param>
+            <param name="pageSize">页数</param>
+            <param name="columns">错误信息</param>
+            <param name="error">错误信息</param>
+            <param name="type">分页类型 分页类型 0：Max分页  1:Top分页 Max分页：必须用户编写复杂Sql，不支持非唯一列排序 分页类型 0：Max分页  1:Top分页 2:rownum分页,注意数据库类型必须是SQL2005以上</param>
+            <param name="parameterValues">参数</param>
+            <returns>取得分页DataTable</returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.GetCount(System.String)">
+            <summary>
+            返回总数
+            </summary>
+            <param name="tableName">表名或者() v 视图</param>
+            <returns>返回总数</returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecutePagingReader(System.String,System.String,System.String,System.Int32,System.Int32,System.Data.Common.DbParameter[])">
+            <summary>
+            取得分页Reader
+            </summary>
+            <param name="tableName"></param>
+            <param name="primaryKey"></param>
+            <param name="where"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="parameterValues"></param>
+            <returns>取得分页Reader</returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExecutePagingReader(System.String,System.String,System.Int32,System.Int32,System.Data.Common.DbParameter[])">
+            <summary>
+            取得分页Reader
+            </summary>
+            <param name="tableName">表名</param>
+            <param name="where">条件</param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <param name="parameterValues"></param>
+            <returns>取得分页Reader</returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.BeginTransaction">
+            <summary>
+            开始事务，出现异常的时候，事务会自动回滚，不用手工CommitTransaction
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.CommitTransaction">
+            <summary>
+            提交事务
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.RollbackTransaction">
+            <summary>
+            回滚事务
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ReleaseTransaction">
+            <summary>
+            释放事务，此方法暂时未想到使用的时机
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.OpenConn(System.Data.Common.DbConnection)">
+            <summary>
+            打开数据库链接，默认会重试5次
+            </summary>
+            <param name="conn"></param>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.OpenConn(System.Data.Common.DbConnection,System.Int32)">
+            <summary>
+            打开数据库连接
+            </summary>
+            <param name="conn">DbConnection</param>
+            <param name="reTryCount">重试次数</param>
+            <remarks>
+            这段重试打开数据库链接代码参考：http://www.cnblogs.com/shuxiaolong/p/20150424_001.html
+            </remarks>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.CloseConn(System.Data.Common.DbConnection)">
+            <summary>
+            关闭数据库连接
+            </summary>
+            <param name="conn"></param>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.AddParameter(System.String,System.Object)">
+            <summary>
+            添加参数值,最后记得Clear()，否则影响其他,这个参数会加入dbParms集合里面
+            </summary>
+            <param name="columnName"></param>
+            <param name="value"></param>
+            <returns>
+            返回DBHelperP对象，允许链式操作
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ClearParameter">
+            <summary>
+            清空DbParms List列表
+            </summary>
+            <returns></returns>
+            <remarks>
+            20160120添加
+            </remarks>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.CreateInDbParameter(System.String,System.Data.DbType,System.Int32,System.Object)">
+            <summary>
+            创建参数
+            </summary>
+            <param name="paraName">参数名称</param>
+            <param name="type">参数类型</param>
+            <param name="size">参数值范围大小</param>
+            <param name="value">参数值</param>
+            <returns>
+            返回DBHelperP对象，允许链式操作
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.CreateInDbParameter(System.String,System.Data.DbType,System.Object)">
+            <summary>
+            创建参数
+            </summary>
+            <param name="paraName"></param>
+            <param name="type"></param>
+            <param name="value"></param>
+            <returns>
+            返回DBHelperP对象，允许链式操作
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.CreateInDbParameter(System.String,System.Object)">
+            <summary>
+            创建参数，自动推断类型
+            </summary>
+            <param name="paraName"></param>
+            <param name="value"></param>
+            <returns>
+            返回DBHelperP对象，允许链式操作
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.CreateInDbParameter(System.String,System.Object,System.Boolean)">
+            <summary>
+            创建参数，自动推断类型
+            </summary>
+            <param name="paraName"></param>
+            <param name="value"></param>
+            <param name="usePre">是否使用前缀,如果是oracle的存储过程，要求不能有前缀</param>
+            <returns>
+            返回DBHelperP对象，允许链式操作
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.CreateOutDbParameter(System.String,System.Data.DbType,System.Int32)">
+            <summary>
+            创建参数
+            </summary>
+            <param name="paraName"></param>
+            <param name="type"></param>
+            <param name="size"></param>
+            <returns>
+            返回DBHelperP对象，允许链式操作
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.CreateOutDbParameter(System.String,System.Data.DbType)">
+            <summary>
+            创建参数
+            </summary>
+            <param name="paraName"></param>
+            <param name="type"></param>
+            <returns>
+            返回DBHelperP对象，允许链式操作
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.CreateOutDbParameter(System.String)">
+            <summary>
+            创建输出参数，自动推断类型
+            </summary>
+            <param name="paraName"></param>
+            <returns>
+            返回DBHelperP对象，允许链式操作
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.CreateReturnDbParameter(System.String,System.Data.DbType,System.Int32)">
+            <summary>
+            创建参数
+            </summary>
+            <param name="paraName"></param>
+            <param name="type"></param>
+            <param name="size"></param>
+            <returns>
+            返回DBHelperP对象，允许链式操作
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.CreateReturnDbParameter(System.String,System.Data.DbType)">
+            <summary>
+            创建参数
+            </summary>
+            <param name="paraName"></param>
+            <param name="type"></param>
+            <returns>
+            
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.CreateReturnDbParameter(System.String)">
+            <summary>
+            自动推断类型，创建返回参数
+            </summary>
+            <param name="paraName"></param>
+            <returns>
+            
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.CreateDbParameter(System.String,System.Data.DbType,System.Int32,System.Object,System.Data.ParameterDirection)">
+            <summary>
+            创建参数
+            </summary>
+            <param name="paraName">参数名称</param>
+            <param name="type">参数类型</param>
+            <param name="size">参数大小</param>
+            <param name="value">参数值</param>
+            <param name="direction">方向</param>
+            <remarks>
+            2015/09/12日，参照cyq.data.dll 4.5，修改了para.Size逻辑赋值部分 
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.CreateDbParameter(System.String,System.Int32,System.Object,System.Data.ParameterDirection)">
+            <summary>
+            创建参数,自动推断类型
+            </summary>
+            <param name="paraName">参数名称</param>
+            <param name="size">参数大小，如果为0，则自动推断大小</param>
+            <param name="value">参数值，如果为null，则赋值为DBNull</param>
+            <param name="direction">如果为null，则表示ParameterDirection.Input</param>
+            <returns>
+             </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.CreateDbParameter(System.String,System.Int32,System.Object,System.Data.ParameterDirection,System.Boolean)">
+            <summary>
+            创建参数,自动推断类型
+            </summary>
+            <param name="paraName">参数名称</param>
+            <param name="size">参数大小，如果为0，则自动推断大小</param>
+            <param name="value">参数值，如果为null，则赋值为DBNull</param>
+            <param name="direction">如果为null，则表示ParameterDirection.Input</param>
+            <param name="usePre">是否使用前缀,存储过程不能使用前缀</param>
+            <returns>
+             </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.PrepareCmd(System.Data.CommandType,System.String,System.Data.Common.DbParameter[],System.Boolean@)">
+            <summary>
+            预处理用户提供的命令,数据库连接/事务/命令类型/参数
+            </summary>
+            <param name="cmdType">类型，是字符串还是存储过程</param>
+            <param name="cmdText">sql语句或者存储过程名称</param>
+            <param name="cmdParams">和命令相关联的DbParameter参数数组,如果没有参数为'null'</param>
+            <param name="mustCloseConn">是否必须关闭连接</param>
+            <param><c>true</c> 如果连接是打开的,则为true,其它情况下为false.</param>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.AttachParameters(System.Data.Common.DbCommand,System.Data.Common.DbParameter[])">
+            <summary>
+            将DbParameter参数数组(参数值)分配给DbCommand命令.
+            这个方法将给任何一个参数分配DBNull.Value;
+            该操作将阻止默认值的使用.
+            </summary>
+            <param name="command">命令名</param>
+            <param name="commandParameters">SqlParameters数组</param>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ClearCmdParameters(System.Data.Common.DbCommand)">
+            <summary>
+            清除DbCommand参数
+            </summary>
+            <param name="cmd"></param>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ResetDataBase">
+            <summary>
+            重新组织数据库的操作，节约空间,专供sqlite
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.CreateDataBase(System.String)">
+            <summary>
+            创建sqlite数据库
+            </summary>
+            <param name="dbpath">数据库位置</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.IsExistsTable(System.String)">
+            <summary>
+            查找是否存在某个表
+            </summary>
+            <param name="tableName">表名</param>
+            <returns>成功返回true，不存在返回false</returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.GetTableSchema(System.String)">
+            <summary>
+            从Connection中获取单表架构
+            </summary>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.GetAllTablesSchema">
+            <summary>
+            获取所有表的数据库架构信息，包含表名、序号、列名、数据类型、长度、小数位数、标示、主键、允许空、默认值、列说明，采用sql语句方式获取
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.GetTableSchemaT2(System.String)">
+            <summary>
+            返回Schema，包含表名、序号、列名、数据类型、长度、小数位数、标示、主键、允许空、默认值、列说明，采用sql语句方式获取
+            </summary>
+            <param name="tableName"></param>
+            <returns>
+            返回Schema，包含表名、序号、列名、数据类型、长度、小数位数、标示、主键、允许空、默认值、列说明，采用sql语句方式获取
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.GetTableSchemaT(System.String)">
+            <summary>
+            通过DataReader返回Schema ColumnName|string,DataType|string,IsReadOnly|bool,AllowDBNull|bool,ColumnSize|int,IsUnique|int,IsAutoIncrement|bool,IsKey|bool
+            Oralce没有IsReadOnly、IsAutoIncrement
+            </summary>
+            <param name="tableName"></param>
+            <returns>
+            该DataTable不可能为null
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.GetPrimaryKey(System.String)">
+            <summary>
+            获取主键,如果没主键,那么取第一列为主键
+            </summary>
+            <param name="tableName">表名</param>
+            <returns>
+            获取主键,如果没主键,那么取第一列为主键
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.GetTablePrimariKey(System.String)">
+            <summary>
+            获取主键,如果没有,则获取第一个列名 key为字段名称
+            </summary>
+            <param name="tableName">表名</param>
+            <returns>
+            获取主键,如果没有,则获取第一个列名 key为字段名称
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.GetAllTablesKey">
+            <summary>
+            获取所有表的关键字 tablename,key
+            </summary>
+            <returns>
+            获取所有表的关键字 tablename,key，该DataTable不为null
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.ExistColumnName(System.String,System.String)">
+            <summary>
+            是否存在某个列
+            </summary>
+            <param name="tableName">表名</param>
+            <param name="columnName">列名</param>
+            <returns>
+            是否存在某个列
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.GetTableNames">
+            <summary>
+            返回所有表名，采用sql语句方式获取 table_name 字段
+            </summary>
+            <remarks>
+            2014-01-18 测试通过
+            </remarks>
+            <returns>
+            返回一个含有所有表名的DataTable 
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.GetAllDataBase">
+            <summary>
+            获取所有的数据库名称列表
+            </summary>
+            <returns>
+            目前仅支持sql数据库
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.GetAllViews">
+            <summary>
+            返回所有视图名称
+            </summary>
+            <returns>
+            返回所有视图名称，目前仅支持sql数据库
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.CreateTable(System.String)">
+            <summary>
+            通过字符列表创建表字段，字段格式可以是：
+            1) a,b,c,d,e
+            2) a|int,b|string,c|bool,d|decimal
+            </summary>
+            <param name="nameString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.GetSQLTablesDescription">
+            <summary>
+            获取表名以及表描述
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.GetTableDescription(System.String)">
+            <summary>
+            返回表描述,只能针对sql数据库,其他数据库暂未实现
+            </summary>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.GetMysqlSchema">
+            <summary>
+            获取MYSQL数据库中所有表的数据库架构信息，包括列描述
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.GetOledbSchema">
+            <summary>
+            返回Access的所有表结构
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.GetSql2000Schema">
+            <summary>
+            返回sql2000的数据库架构信息，表名 、字段序号、字段名称、标识、主键、类型、长度、小数位数、允许空、默认值、字段说明
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.GetSchema(System.String,System.String[])">
+            <summary>
+            获取架构信息
+            </summary>
+            <param name="metaDataCollectionName">可以使用SqlClientMetaDataCollectionNames.Databases等</param>
+            <param name="restrictions">限定数组</param>
+            <returns>
+            返回一个DataTable，此DataTable不为null，但可能数据为空
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.DBHelperP.GetSqlVersion">
+            <summary>
+            获取SQL数据库版本
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:DBUtilityV2.DBHelperP.MetaDataCollectionName_Databases">
+            <summary>
+            返回Databases字符串
+            </summary>
+        </member>
+        <member name="P:DBUtilityV2.DBHelperP.MetaDataCollectionName_Tables">
+            <summary>
+            返回Tables字符串
+            </summary>
+        </member>
+        <member name="P:DBUtilityV2.DBHelperP.MetaDataCollectionName_Columns">
+            <summary>
+            返回Columns字符串
+            </summary>
+        </member>
+        <member name="P:DBUtilityV2.DBHelperP.MetaDataCollectionName_Views">
+            <summary>
+            返回Views字符串
+            </summary>
+        </member>
+        <member name="P:DBUtilityV2.DBHelperP.MetaDataCollectionName_ViewColumns">
+            <summary>
+            返回ViewColumns字符串
+            </summary>
+        </member>
+        <member name="P:DBUtilityV2.DBHelperP.MetaDataCollectionName_Indexes">
+            <summary>
+            返回Indexes字符串
+            </summary>
+        </member>
+        <member name="P:DBUtilityV2.DBHelperP.MetaDataCollectionName_IndexColumns">
+            <summary>
+            返回IndexColumns字符串
+            </summary>
+        </member>
+        <member name="P:DBUtilityV2.DBHelperP.MetaDataCollectionName_Procedures">
+            <summary>
+            返回Procedures字符串
+            </summary>
+        </member>
+        <member name="P:DBUtilityV2.DBHelperP.MetaDataCollectionName_Parameters">
+            <summary>
+            返回Parameters字符串
+            </summary>
+        </member>
+        <member name="T:DBUtilityV2.DBManager">
+            <summary>
+            采用静态方法的
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.DBManager.Instance">
+            <summary>
+            获取默认实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DBManager.Instance(System.String)">
+            <summary>
+            获取默认实例
+            </summary>
+            <param name="conn">链接字符串</param>
+            <returns></returns>
+            <remarks>
+            20160120加入缓存设置，尚未测试效果
+            </remarks>
+        </member>
+        <member name="T:DBUtilityV2.IDBClient">
+            <summary>
+            接口，此接口需要每个数据库实现类都需要实现
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.IDBClient.GetDbConnection(System.String)">
+            <summary>
+            获取GetDbConnection
+            </summary>
+            <param name="connectionString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.IDBClient.GetDbCommand(System.String)">
+            <summary>
+            获取GetDbCommand
+            </summary>
+            <param name="cmdText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.IDBClient.GetDbDataAdappter">
+            <summary>
+            获取DbDataAdapter
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.IDBClient.GetDbParameter">
+            <summary>
+            获取DbParameter
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.IDBClient.SqlBulkCopyImport(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Data.DataTable)">
+            <summary>
+            批量导入
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="maplistSource">来源</param>
+            <param name="maplistDestination">目标</param>
+            <param name="tableName">目标表名</param>
+            <param name="dt">源数据</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:DBUtilityV2.IDBClient.SqlBulkCopyImport(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Data.DataTable,System.String@)">
+            <summary>
+            批量导入
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="maplistSource">来源</param>
+            <param name="maplistDestination">目标</param>
+            <param name="tableName">目标表名</param>
+            <param name="dt">源数据</param>
+            <param name="error">错误信息</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:DBUtilityV2.IDBClient.SqlBulkCopyImport(System.String,System.String,System.Data.DataTable)">
+            <summary>
+            批量导入
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.IDBClient.SqlBulkCopyImport(System.String,System.String,System.Data.DataTable,System.String@,System.Action{System.Object,System.Data.SqlClient.SqlRowsCopiedEventArgs},System.Int32)">
+            <summary>
+            批量导入,加入了事务，加入了检查constraints SqlRowsCopiedEventArgs
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <param name="error">错误信息</param>
+            <param name="act">委托</param>
+            <param name="iNotifyAfter">数量，到达这个数量后，触发事件</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.IDBClient.SqlBulkCopyImport(System.String,System.String,System.Data.DataTable,System.String@,System.Action{System.Object,System.Data.SqlClient.SqlRowsCopiedEventArgs},System.Int32,System.Int32)">
+            <summary>
+            批量导入,加入了事务，加入了检查constraints SqlRowsCopiedEventArgs
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <param name="error">错误信息</param>
+            <param name="act">委托</param>
+            <param name="iNotifyAfter">数量，到达这个数量后，触发事件</param>
+            <param name="timeout">超时时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DDTekOracleClient.GetDbProviderFacory">
+            <summary>
+            DbProviderFactory
+            2016-03-14 发现此方法有问题，老报错，
+            [A]DDTek.Oracle.OracleConnection 无法强制转换为 [B]DDTek.Oracle.OracleConnection。类型 A 源自“DDTek.Oracle, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null”(在上下文“LoadNeither”中的“D:\Website\Advice\bin\DDTek.Oracle.dll”位置处)。类型 B 源自“DDTek.Oracle, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null”(在上下文“Default”中的“C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\b10749fd\69441f29\assembly\dl3\ce7d2259\9377a951_fa25d101\DDTek.Oracle.DLL”位置处)。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DDTekOracleClient.GetDbConnection(System.String)">
+            <summary>
+            获取DbConnection
+            </summary>
+            <param name="connectionString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DDTekOracleClient.GetDbCommand(System.String)">
+            <summary>
+            获取DbCommand
+            </summary>
+            <param name="cmdText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DDTekOracleClient.GetDbDataAdappter">
+            <summary>
+            获取DbDataAdapter
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DDTekOracleClient.GetDbParameter">
+            <summary>
+            获取DbParameter
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DDTekOracleClient.SqlBulkCopyImport(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Data.DataTable)">
+            <summary>
+            批量插入
+            </summary>
+            <param name="connectionString"></param>
+            <param name="maplistSource"></param>
+            <param name="maplistDestination"></param>
+            <param name="tableName"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DDTekOracleClient.SqlBulkCopyImport(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Data.DataTable,System.String@)">
+            <summary>
+            批量导入
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="maplistSource">来源</param>
+            <param name="maplistDestination">目标</param>
+            <param name="tableName">目标表名</param>
+            <param name="dt">源数据</param>
+            <param name="error">错误信息</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:DBUtilityV2.DDTekOracleClient.SqlBulkCopyImport(System.String,System.String,System.Data.DataTable)">
+            <summary>
+            批量导入
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DDTekOracleClient.SqlBulkCopyImport(System.String,System.String,System.Data.DataTable,System.String@,System.Action{System.Object,System.Data.SqlClient.SqlRowsCopiedEventArgs},System.Int32)">
+            <summary>
+            批量导入,加入了事务，加入了检查constraints SqlRowsCopiedEventArgs
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <param name="error">错误信息</param>
+            <param name="act">委托</param>
+            <param name="iNotifyAfter">数量，到达这个数量后，触发事件</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DDTekOracleClient.SqlBulkCopyImport(System.String,System.String,System.Data.DataTable,System.String@,System.Action{System.Object,System.Data.SqlClient.SqlRowsCopiedEventArgs},System.Int32,System.Int32)">
+            <summary>
+            批量导入,加入了事务，加入了检查constraints SqlRowsCopiedEventArgs
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <param name="error">错误信息</param>
+            <param name="act">委托</param>
+            <param name="iNotifyAfter">数量，到达这个数量后，触发事件</param>
+            <param name="timeout">超时时间</param>
+            <returns></returns>
+        </member>
+        <member name="T:DBUtilityV2.LogUtil">
+            <summary>
+            来自吉日嘎拉
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.LogUtil.WriteException(System.Exception)">
+            <summary>
+            写入日志
+            </summary>
+            <param name="exception"></param>
+        </member>
+        <member name="M:DBUtilityV2.LogUtil.Write(System.String)">
+            <summary>
+            写入日志
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.LogUtil.W(System.String)">
+            <summary>
+            写日志 根目录下的cyq_data_log.txt文件
+            </summary>
+            <param name="log"></param>
+        </member>
+        <member name="M:DBUtilityV2.LogUtil.W(System.Exception)">
+            <summary>
+            在本地写入错误日志，仅供cyq.data.dll输出日志使用
+            </summary>
+            <param name="exception"></param> 错误信息
+        </member>
+        <member name="M:DBUtilityV2.LogUtil.WriteLog(System.Exception)">
+            <summary>
+            在本地写入错误日志
+            </summary>
+            <param name="exception"></param> 错误信息
+        </member>
+        <member name="T:DBUtilityV2.MySqlClient">
+            <summary>
+            Mysql数据库实现类
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.MySqlClient.GetDbConnection(System.String)">
+            <summary>
+            获取DbConnection
+            </summary>
+            <param name="connectionString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.MySqlClient.GetDbCommand(System.String)">
+            <summary>
+            获取DbCommand
+            </summary>
+            <param name="cmdText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.MySqlClient.GetDbDataAdappter">
+            <summary>
+            获取DbDataAdapter
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.MySqlClient.GetDbParameter">
+            <summary>
+            获取DbParameter
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.MySqlClient.SqlBulkCopyImport(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Data.DataTable)">
+            <summary>
+            批量插入
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="maplistSource">null</param>
+            <param name="maplistDestination">null</param>
+            <param name="tableName">表名</param>
+            <param name="dt">要插入的DataTable</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.MySqlClient.DataTableToCsv(System.Data.DataTable)">
+             <summary>
+            将DataTable转换为标准的CSV
+             </summary>
+             <param name="table">数据表</param>
+             <returns>返回标准的CSV</returns>
+        </member>
+        <member name="M:DBUtilityV2.MySqlClient.SqlBulkCopyImport(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Data.DataTable,System.String@)">
+            <summary>
+            批量导入
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="maplistSource">来源</param>
+            <param name="maplistDestination">目标</param>
+            <param name="tableName">目标表名</param>
+            <param name="dt">源数据</param>
+            <param name="error">错误信息</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:DBUtilityV2.MySqlClient.SqlBulkCopyImport(System.String,System.String,System.Data.DataTable)">
+            <summary>
+            批量导入
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.MySqlClient.SqlBulkCopyImport(System.String,System.String,System.Data.DataTable,System.String@,System.Action{System.Object,System.Data.SqlClient.SqlRowsCopiedEventArgs},System.Int32)">
+            <summary>
+            批量导入,加入了事务，加入了检查constraints SqlRowsCopiedEventArgs
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <param name="error">错误信息</param>
+            <param name="act">委托</param>
+            <param name="iNotifyAfter">数量，到达这个数量后，触发事件</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.MySqlClient.SqlBulkCopyImport(System.String,System.String,System.Data.DataTable,System.String@,System.Action{System.Object,System.Data.SqlClient.SqlRowsCopiedEventArgs},System.Int32,System.Int32)">
+            <summary>
+            批量导入,加入了事务，加入了检查constraints SqlRowsCopiedEventArgs
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <param name="error">错误信息</param>
+            <param name="act">委托</param>
+            <param name="iNotifyAfter">数量，到达这个数量后，触发事件</param>
+            <param name="timeout">超时时间</param>
+            <returns></returns>
+        </member>
+        <member name="T:DBUtilityV2.OledbClient">
+            <summary>
+            Oledb实现类
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.OledbClient.GetDbConnection(System.String)">
+            <summary>
+            获取DbConnection
+            </summary>
+            <param name="connectionString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.OledbClient.GetDbCommand(System.String)">
+            <summary>
+            获取DbCommand
+            </summary>
+            <param name="cmdText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.OledbClient.GetDbDataAdappter">
+            <summary>
+            获取DbDataAdapter
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.OledbClient.GetDbParameter">
+            <summary>
+            获取DbParameter
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.OledbClient.SqlBulkCopyImport(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Data.DataTable)">
+            <summary>
+            批量插入
+            </summary>
+            <param name="connectionString"></param>
+            <param name="maplistSource"></param>
+            <param name="maplistDestination"></param>
+            <param name="tableName"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.OledbClient.SqlBulkCopyImport(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Data.DataTable,System.String@)">
+            <summary>
+            批量导入
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="maplistSource">来源</param>
+            <param name="maplistDestination">目标</param>
+            <param name="tableName">目标表名</param>
+            <param name="dt">源数据</param>
+            <param name="error">错误信息</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:DBUtilityV2.OledbClient.SqlBulkCopyImport(System.String,System.String,System.Data.DataTable)">
+            <summary>
+            批量导入
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.OledbClient.SqlBulkCopyImport(System.String,System.String,System.Data.DataTable,System.String@,System.Action{System.Object,System.Data.SqlClient.SqlRowsCopiedEventArgs},System.Int32)">
+            <summary>
+            批量导入,加入了事务，加入了检查constraints SqlRowsCopiedEventArgs
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <param name="error">错误信息</param>
+            <param name="act">委托</param>
+            <param name="iNotifyAfter">数量，到达这个数量后，触发事件</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.OledbClient.SqlBulkCopyImport(System.String,System.String,System.Data.DataTable,System.String@,System.Action{System.Object,System.Data.SqlClient.SqlRowsCopiedEventArgs},System.Int32,System.Int32)">
+            <summary>
+            批量导入,加入了事务，加入了检查constraints SqlRowsCopiedEventArgs
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <param name="error">错误信息</param>
+            <param name="act">委托</param>
+            <param name="iNotifyAfter">数量，到达这个数量后，触发事件</param>
+            <param name="timeout">超时时间</param>
+            <returns></returns>
+        </member>
+        <member name="T:DBUtilityV2.OracleClient">
+            <summary>
+            Oracle实现类
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.OracleClient.GetDbConnection(System.String)">
+            <summary>
+            获取DbConnection
+            </summary>
+            <param name="connectionString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.OracleClient.GetDbCommand(System.String)">
+            <summary>
+            获取DbCommand
+            </summary>
+            <param name="cmdText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.OracleClient.GetDbDataAdappter">
+            <summary>
+            DbDataAdapter
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.OracleClient.GetDbParameter">
+            <summary>
+            获取DbParameter
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.OracleClient.SqlBulkCopyImport(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Data.DataTable)">
+            <summary>
+            批量插入
+            </summary>
+            <param name="connectionString"></param>
+            <param name="maplistSource"></param>
+            <param name="maplistDestination"></param>
+            <param name="tableName"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.OracleClient.SqlBulkCopyImport(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Data.DataTable,System.String@)">
+            <summary>
+            批量导入
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="maplistSource">来源</param>
+            <param name="maplistDestination">目标</param>
+            <param name="tableName">目标表名</param>
+            <param name="dt">源数据</param>
+            <param name="error">错误信息</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:DBUtilityV2.OracleClient.SqlBulkCopyImport(System.String,System.String,System.Data.DataTable)">
+            <summary>
+            批量导入
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.OracleClient.SqlBulkCopyImport(System.String,System.String,System.Data.DataTable,System.String@,System.Action{System.Object,System.Data.SqlClient.SqlRowsCopiedEventArgs},System.Int32)">
+            <summary>
+            批量导入,加入了事务，加入了检查constraints SqlRowsCopiedEventArgs
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <param name="error">错误信息</param>
+            <param name="act">委托</param>
+            <param name="iNotifyAfter">数量，到达这个数量后，触发事件</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.OracleClient.SqlBulkCopyImport(System.String,System.String,System.Data.DataTable,System.String@,System.Action{System.Object,System.Data.SqlClient.SqlRowsCopiedEventArgs},System.Int32,System.Int32)">
+            <summary>
+            批量导入,加入了事务，加入了检查constraints SqlRowsCopiedEventArgs
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <param name="error">错误信息</param>
+            <param name="act">委托</param>
+            <param name="iNotifyAfter">数量，到达这个数量后，触发事件</param>
+            <param name="timeout">超时时间</param>
+            <returns></returns>
+        </member>
+        <member name="T:DBUtilityV2.Pager">
+            <summary>
+            分页帮助类
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.Pager.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="strPrimaryKey">主键</param>
+        </member>
+        <member name="M:DBUtilityV2.Pager.GetSql(DBUtilityV2.DatabaseTypes,System.Int32,System.Int32,System.Object,System.String)">
+            <summary>
+            取得分页sql语句，默认top分页
+            </summary>
+            <param name="dalType">数据库类型</param>
+            <param name="pageIndex">页码</param>
+            <param name="pageSize">每页数量</param>
+            <param name="objWhere">条件语句</param>
+            <param name="tableName">表名</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.Pager.GetSql(DBUtilityV2.DatabaseTypes,System.Int32,System.Int32,System.Object,System.String,System.String)">
+            <summary>
+            取得分页sql语句，默认top分页
+            </summary>
+            <param name="dalType">数据库类型</param>
+            <param name="pageIndex">页码，如果为0则表示获取全部</param>
+            <param name="pageSize">每页数量，如果小于或者等于0，则系统自动内部转换为默认值20</param>
+            <param name="objWhere">条件，如果为空，则表示获取全部信息</param>
+            <param name="tableName">表名</param>
+            <param name="columns">列名，例如“id,age,name”，或者为*,如果为空，则表示获取全部字段，内部自动赋值为*</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.Pager.GetSql(DBUtilityV2.DatabaseTypes,System.Int32,System.Int32,System.Object,System.String,System.String,System.Int32)">
+            <summary>
+            取得分页sql语句，重载版本  Max分页：必须用户编写复杂Sql，不支持非唯一列排序 分页类型 0：Max分页  1:Top分页 2:rownum分页,注意数据库类型必须是SQL2005以上
+            </summary>
+            <param name="dalType">数据库类型</param>
+            <param name="pageIndex">页码</param>
+            <param name="pageSize">每页数量,默认值为20，如果此处被写成负数或者0，那么自动设置为20</param>
+            <param name="objWhere">查询条件，可以为空</param>
+            <param name="tableName">表名</param>
+            <param name="columns">用逗号分隔，如果为空，则默认为*</param>
+            <param name="type">分页类型 0：Max分页  1:Top分页，2：rownum分页，需要sql2005以上</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.Pager.GetWhereFixOrderBy(System.String)">
+            <summary>
+            修复条件语句部分，如果没有order by那么加上"order by 主键"
+            </summary>
+            <param name="where">条件语句</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.Pager.GetOracleOnePageSql(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            取得oracle分页sql
+            </summary>
+            <param name="tableName">表名</param>
+            <param name="strPrimaryKey">主键名</param>
+            <param name="pageSize">每页大小</param>
+            <param name="pageNo">页码</param>
+            <returns>分页sql字符串</returns>
+            <remarks>
+            参考:http://www.cnblogs.com/binblog/archive/2012/01/02/2309991.html
+            </remarks>
+        </member>
+        <member name="M:DBUtilityV2.Pager.GetOracleOnePageSql(System.String,System.String,System.Int32,System.Int32,System.String)">
+            <summary>
+            取得oracle分页sql
+            </summary>
+            <param name="tableName">表名</param>
+            <param name="strPrimaryKey">主键名</param>
+            <param name="pageSize">每页大小</param>
+            <param name="pageNo">页码</param>
+            <param name="columns">列名或者是*</param>
+            <returns>分页sql字符串</returns>
+            <remarks>
+            参考:http://www.cnblogs.com/binblog/archive/2012/01/02/2309991.html
+            </remarks>
+        </member>
+        <member name="M:DBUtilityV2.Pager.GetOrderBy(System.String,System.Boolean)">
+            <summary>
+            取得order by 部分
+            </summary>
+            <param name="where"></param>
+            <param name="reverse"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.Pager.IsOrderByDesc(System.String)">
+            <summary>
+            查看条件中是否含有desc排列字样
+            </summary>
+            <param name="where"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.Pager.GetDataPages(System.Int32,System.Int32)">
+            <summary>
+            获取总页数
+            </summary>
+            <param name="pagesize">每页记录数</param>
+            <param name="recordcount">总记录数</param>
+            <returns></returns>
+        </member>
+        <member name="P:DBUtilityV2.Pager.Primarykey">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="T:DBUtilityV2.SqliteClient">
+            <summary>
+            Sqlite实现类
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.SqliteClient.GetDbConnection(System.String)">
+            <summary>
+            获取GetDbConnection
+            </summary>
+            <param name="connectionString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.SqliteClient.GetDbCommand(System.String)">
+            <summary>
+            获取DbCommand
+            </summary>
+            <param name="cmdText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.SqliteClient.GetDbDataAdappter">
+            <summary>
+            获取DbDataAdapter
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.SqliteClient.GetDbParameter">
+            <summary>
+            获取DbParameter
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.SqliteClient.SqlBulkCopyImport(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Data.DataTable)">
+            <summary>
+            批量插入
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="maplistSource">null</param>
+            <param name="maplistDestination">null</param>
+            <param name="tableName">表名</param>
+            <param name="dt">要插入的DataTable</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.SqliteClient.SqlBulkCopyImport(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Data.DataTable,System.String@)">
+            <summary>
+            批量导入
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="maplistSource">来源</param>
+            <param name="maplistDestination">目标</param>
+            <param name="tableName">目标表名</param>
+            <param name="dt">源数据</param>
+            <param name="error">错误信息</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:DBUtilityV2.SqliteClient.SqlBulkCopyImport(System.String,System.String,System.Data.DataTable)">
+            <summary>
+            批量导入
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.SqliteClient.SqlBulkCopyImport(System.String,System.String,System.Data.DataTable,System.String@,System.Action{System.Object,System.Data.SqlClient.SqlRowsCopiedEventArgs},System.Int32)">
+            <summary>
+            批量导入,加入了事务，加入了检查constraints SqlRowsCopiedEventArgs
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <param name="error">错误信息</param>
+            <param name="act">委托</param>
+            <param name="iNotifyAfter">数量，到达这个数量后，触发事件</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.SqliteClient.SqlBulkCopyImport(System.String,System.String,System.Data.DataTable,System.String@,System.Action{System.Object,System.Data.SqlClient.SqlRowsCopiedEventArgs},System.Int32,System.Int32)">
+            <summary>
+            批量导入,加入了事务，加入了检查constraints SqlRowsCopiedEventArgs
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <param name="error">错误信息</param>
+            <param name="act">委托</param>
+            <param name="iNotifyAfter">数量，到达这个数量后，触发事件</param>
+            <param name="timeout">超时时间</param>
+            <returns></returns>
+        </member>
+        <member name="T:DBUtilityV2.SqlServerClient">
+            <summary>
+            SQL数据库实现类
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.SqlServerClient.GetDbConnection(System.String)">
+            <summary>
+            获取DbConnection
+            </summary>
+            <param name="connectionString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.SqlServerClient.GetDbCommand(System.String)">
+            <summary>
+            获取DbCommand
+            </summary>
+            <param name="cmdText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.SqlServerClient.GetDbDataAdappter">
+            <summary>
+            获取DbDataAdapter
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.SqlServerClient.GetDbParameter">
+            <summary>
+            获取DbParameter
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.SqlServerClient.SqlBulkCopyImport(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Data.DataTable)">
+            <summary>
+            批量导入
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="maplistSource">源列名 如果数据源和目标表具有相同的列数，并且数据源中每个源列的序号位置匹配相应目标列的序号位置，则无需 ColumnMappings 集合。 但是如果列计数不同，或序号位置不一致，则必须使用 ColumnMappings，以确保将数据复制到正确的列中。 </param>
+            <param name="maplistDestination">目标表列名</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.SqlServerClient.SqlBulkCopyImport(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.Data.DataTable,System.String@)">
+            <summary>
+            批量导入
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="maplistSource">源列名 如果数据源和目标表具有相同的列数，并且数据源中每个源列的序号位置匹配相应目标列的序号位置，则无需 ColumnMappings 集合。 但是如果列计数不同，或序号位置不一致，则必须使用 ColumnMappings，以确保将数据复制到正确的列中。 </param>
+            <param name="maplistDestination">目标表列名</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <param name="error">错误信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.SqlServerClient.SqlBulkCopyImport(System.String,System.String,System.Data.DataTable)">
+            <summary>
+            批量导入，字段顺序需要完全对应，否则出错
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.SqlServerClient.SqlBulkCopyImport(System.String,System.String,System.Data.DataTable,System.String@,System.Action{System.Object,System.Data.SqlClient.SqlRowsCopiedEventArgs},System.Int32)">
+            <summary>
+            批量导入,加入了事务，保留源标识值。 如果未指定，则由目标分配标识值。检查约束 对于有自动增长的主键的数据，插入的时候仍有些问题
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <param name="error">错误信息</param>
+            <param name="act">委托</param>
+            <param name="iNotifyAfter">数量，到达这个数量后，触发事件</param>
+            <returns>
+            字段顺序需要完全对应，否则出错
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.SqlServerClient.SqlBulkCopyImport(System.String,System.String,System.Data.DataTable,System.String@,System.Action{System.Object,System.Data.SqlClient.SqlRowsCopiedEventArgs},System.Int32,System.Int32)">
+            <summary>
+            批量导入,加入了事务，保留源标识值。 如果未指定，则由目标分配标识值。检查约束 对于有自动增长的主键的数据，插入的时候仍有些问题
+            </summary>
+            <param name="connectionString">连接字符串</param>
+            <param name="tableName">欲写入的数据库的表名</param>
+            <param name="dt">DataTable</param>
+            <param name="error">错误信息</param>
+            <param name="act">委托</param>
+            <param name="iNotifyAfter">数量，到达这个数量后，触发事件</param>
+            <param name="timeout">超时时间</param>
+            <returns>
+            字段顺序需要注意
+            </returns>
+        </member>
+        <member name="T:DBUtilityV2.TransConnection">
+            <summary>
+            事务帮助类
+            </summary>
+        </member>
+        <member name="T:DBUtilityV2.AppConfig">
+            <summary>
+            配置文件帮助类
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.AppConfig.GetApp(System.String)">
+            <summary>
+            获取对应的Value
+            </summary>
+            <param name="key">AppSettings的key</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.AppConfig.GetAppInt(System.String,System.Int32)">
+            <summary>
+            如果Value的值为Int，那么获取，同时设置默认值
+            </summary>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.AppConfig.GetConn(System.String)">
+            <summary>
+            获取连接字符串
+            </summary>
+            <param name="key"></param>
+            <returns>
+            如果存在，则返回链接字符串，如果不存在，则返回空字符串
+            </returns>
+        </member>
+        <member name="P:DBUtilityV2.AppConfig.IsWriteLog">
+            <summary>
+            是否写日志
+            </summary>
+        </member>
+        <member name="P:DBUtilityV2.AppConfig.AutoID">
+            <summary>
+            Oracle 序列ID
+            </summary>
+        </member>
+        <member name="P:DBUtilityV2.AppConfig.DefaultCacheTime">
+            <summary>
+            默认所有缓存项的时间[分钟(默认60)]
+            </summary>
+        </member>
+        <member name="P:DBUtilityV2.AppConfig.CacheClearWorkTime">
+            <summary>
+            缓存同步时间[(默认5)分钟同步一次]
+            </summary>
+        </member>
+        <member name="P:DBUtilityV2.AppConfig.CacheClearCallCount">
+            <summary>
+            N(默认4)分钟内调用次数少于指定值(默认2)，缓存即被清除[最少调用次数设置]
+            </summary>
+        </member>
+        <member name="P:DBUtilityV2.AppConfig.CacheClearTime">
+            <summary>
+            N(默认4)分钟内调用次数少于指定值(默认2)，缓存即被清除[时间设置]
+            </summary>
+        </member>
+        <member name="P:DBUtilityV2.AppConfig.LogPath">
+            <summary>
+            写日志出现异常时，记录到文本文件路径
+            </summary>
+        </member>
+        <member name="T:CYQ.Data.AppConst">
+            <summary>
+            内部常量类
+            </summary>
+        </member>
+        <member name="T:DBUtilityV2.CacheManage">
+            <summary>
+            全局缓存类
+            </summary>
+            <example><code>
+            使用示例：
+            实例化： CacheManage cache=CacheManage.Instance;
+            添加：   cache.Add("路过秋天",new MDataTable);
+            判断：   if(cache.Contains("路过秋天"))
+                     {
+            获取：       MDataTable table=cache.Get("路过秋天") as MDataTable;
+                     }
+            </code></example>
+        </member>
+        <member name="M:DBUtilityV2.CacheManage.Get(System.String)">
+            <summary>
+            获得一个Cache对象
+            </summary>
+            <param name="key">标识</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.CacheManage.Contains(System.String)">
+            <summary>
+            是否存在缓存
+            </summary>
+            <param name="key">标识</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.CacheManage.Add(System.String,System.Object)">
+            <summary>
+            添加一个Cache对象
+            </summary>
+            <param name="key">标识</param>
+            <param name="value">对象值</param>
+        </member>
+        <member name="M:DBUtilityV2.CacheManage.Add(System.String,System.Object,System.String)">
+            <summary>
+            添加缓存项目
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="filePath"></param>
+        </member>
+        <member name="M:DBUtilityV2.CacheManage.Add(System.String,System.Object,System.String,System.Double)">
+            <summary>
+            添加缓存项目
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="filePath"></param>
+            <param name="cacheTimeMinutes"></param>
+        </member>
+        <member name="M:DBUtilityV2.CacheManage.Set(System.String,System.Object)">
+            <summary>
+            缓存设置：有则更新，无则添加
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:DBUtilityV2.CacheManage.Update(System.String,System.Object)">
+            <summary>
+            更新缓存，缓存存在则更更新，不存在则跳过
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.CacheManage.Insert(System.String,System.Object,System.String,System.Double)">
+            <summary>
+            相对底层Cache添加方法,添加一个Cache请用Add方法
+            </summary>
+            <param name="key">标识</param>
+            <param name="value">对象值</param>
+            <param name="filePath">文件依赖路径</param>
+            <param name="cacheTimeMinutes">缓存分钟数</param>
+        </member>
+        <member name="M:DBUtilityV2.CacheManage.Remove(System.String)">
+            <summary>
+            删除一个Cache对象
+            </summary>
+            <param name="key">标识</param>
+        </member>
+        <member name="M:DBUtilityV2.CacheManage.Clear">
+            <summary>
+            清除所有缓存
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.CacheManage.SetChange(System.String,System.Boolean)">
+            <summary>
+            用户手动设置缓存对象已更改
+            </summary>
+            <param name="key"></param>
+            <param name="change"></param>
+        </member>
+        <member name="M:DBUtilityV2.CacheManage.GetHasChanged(System.String)">
+            <summary>
+            获取缓存对象是否已被用户手动设置更改
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="P:DBUtilityV2.CacheManage.CacheInfo">
+            <summary>
+            缓存信息
+            </summary>
+        </member>
+        <member name="P:DBUtilityV2.CacheManage.WorkInfo">
+            <summary>
+            缓存工作信息
+            </summary>
+        </member>
+        <member name="P:DBUtilityV2.CacheManage.Count">
+            <summary>
+            获和缓存总数
+            </summary>
+        </member>
+        <member name="P:DBUtilityV2.CacheManage.Instance">
+            <summary>
+            返回唯一实例
+            </summary>
+        </member>
+        <member name="P:DBUtilityV2.CacheManage.RemainMemoryPercentage">
+            <summary>
+            还可用的缓存百分比
+            </summary>
+        </member>
+        <member name="P:DBUtilityV2.CacheManage.RemainMemoryBytes">
+            <summary>
+            还可用的缓存字节数
+            </summary>
+        </member>
+        <member name="T:DBUtilityV2.CacheDependencyInfo">
+            <summary>
+            缓存依赖信息
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.CacheDependencyInfo.CallCount">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.CacheDependencyInfo.CreaeTime">
+            <summary>
+            缓存产生的时间
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.CacheDependencyInfo.CacheMinutes">
+            <summary>
+            缓存多少分钟
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.CacheDependencyInfo.#ctor(System.Web.Caching.CacheDependency,System.Double)">
+            <summary>
+            缓存依赖信息构造函数
+            </summary>
+            <param name="dependency"></param>
+            <param name="cacheMinutes"></param>
+        </member>
+        <member name="M:DBUtilityV2.CacheDependencyInfo.UserSetChange(System.Boolean)">
+            <summary>
+            用户设置改变
+            </summary>
+            <param name="change"></param>
+        </member>
+        <member name="P:DBUtilityV2.CacheDependencyInfo.IsChanged">
+            <summary>
+            系统文件依赖是否发生改变
+            </summary>
+        </member>
+        <member name="T:CYQ.Data.SQL.DataType">
+            <summary>
+            数据类型转换类
+            </summary>
+        </member>
+        <member name="M:CYQ.Data.SQL.DataType.GetSqlType(System.Type)">
+            <summary>
+            将DbType类型对应映射到SqlDbType类型
+            </summary>
+            <param name="type">DbType类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.SQL.DataType.GetSqlType(System.String)">
+            <summary>
+            将DbType类型字符串表达方式对应映射到SqlDbType类型
+            </summary>
+            <param name="typeName">类型名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.SQL.DataType.GetDbType(System.String)">
+            <summary>
+            将DbType类型字符串表达形式对应映射到DbType类型
+            </summary>
+            <param name="typeName">类型名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.SQL.DataType.GetDbType(System.Type)">
+            <summary>
+            将SqlDbType类型对应映射到DbType类型
+            </summary>
+            <param name="type">SqlDbType类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.SQL.DataType.GetGroupID(System.Data.SqlDbType)">
+            <summary>
+            字母型返回0；数字型返回1；日期型返回2；bool返回3；其它返回999
+            </summary>
+            <param name="sqlDbType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DBUtilityV2.DTToEntity">
+            <summary>
+            DataTableToEntityByEmit
+            </summary>
+            <remarks>
+            2012-09-11日添加
+            </remarks>
+        </member>
+        <member name="M:DBUtilityV2.DTToEntity.GetList``1(System.Data.DataTable)">
+            <summary>
+            返回List实体,返回的集合不可能为null,所以只需要判断其count是不是大于0即可
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DBUtilityV2.DTEntityBuilder`1">
+            <summary>
+            DataTable到实体
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:DBUtilityV2.DTEntityBuilder`1.Build(System.Data.DataRow)">
+            <summary>
+            返回实体
+            </summary>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.DTEntityBuilder`1.CreateBuilder(System.Data.DataRow)">
+            <summary>
+            
+            </summary>
+            <param name="dr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CYQ.Data.Tool.FastToT`1">
+            <summary>
+            快速转换类[数据量越大[500条起],性能越高]
+            </summary>
+        </member>
+        <member name="M:CYQ.Data.Tool.FastToT`1.Create(CYQ.Data.Table.MDataTable)">
+            <summary>
+            构建一个ORM实体转换器
+            </summary>
+            <param name="schema">表数据架构</param>
+        </member>
+        <member name="M:CYQ.Data.JsonHelper.Fill(CYQ.Data.Table.MDataTable)">
+            <summary>
+            从数据表中取数据填充,最终可输出json字符串
+            </summary>
+        </member>
+        <member name="M:CYQ.Data.JsonHelper.Load(System.String)">
+            <summary>
+            从Json字符串中反加载成数据表,默认字段结构都为string类型
+            </summary>
+        </member>
+        <member name="P:CYQ.Data.JsonHelper.Success">
+            <summary>
+            是否成功   
+            </summary>
+        </member>
+        <member name="P:CYQ.Data.JsonHelper.ErrorMsg">
+            <summary>
+            错误提示信息   
+            </summary>
+        </member>
+        <member name="P:CYQ.Data.JsonHelper.Count">
+            <summary>
+            总数
+            </summary>
+        </member>
+        <member name="T:DBUtilityV2.MAction">
+            <summary>
+            数据操作类[可操作单表/视图]
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.MAction._DataSqlHelper">
+            <summary>
+            数据库操作类
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.MAction._schemaCache">
+            <summary>
+            Cache操作
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.MAction._row">
+            <summary>
+            表示一行
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.MAction._error">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.MAction.MyErr">
+            <summary>
+            用来保存异常信息
+            </summary>
+            <remarks>
+            2015/09/12日添加，功能类似下面的MyException，目的是简化异常提供方式
+            </remarks>
+        </member>
+        <member name="F:DBUtilityV2.MAction.MyException">
+            <summary>
+            用来保存异常信息
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.MAction.LsPrimaryKey">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.MAction.Pre">
+            <summary>
+            参数前缀，默认为@,此参数在Init方法中被重新赋值
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.MAction.DbParms">
+            <summary>
+            参数，供条件表达式使用
+            </summary>
+            <remarks>
+            http://www.cyqdata.com/cyqdata/article-detail-54368
+            </remarks>
+        </member>
+        <member name="F:DBUtilityV2.MAction.Expressions">
+            <summary>
+            自定义表达式,解决类似age=age*2的问题
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.MAction.DbParmExpresstion">
+            <summary>
+            自定义表达式的参数
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.MAction.#ctor(System.Object)">
+            <summary>
+            默认构造函数
+            </summary>
+            <param name="tableName">表名/视图名称,会自动调用ToString方法</param>
+        </member>
+        <member name="M:DBUtilityV2.MAction.#ctor(System.Object,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="tableNamesEnum">表名/视图名称,会自动调用ToString方法</param>
+            <param name="conn">web.config下的connectionStrings的name配置项名称,或完整的链接字符串</param>
+            <example><code>
+                MAction action=new MAction(TableNames.Users,"Conn");
+            或  MAction action=new MAction(TableNames.Users,"server=.;database=CYQ;uid=sa;pwd=123456");
+                if(!action.MyException.Message.NotNullOrEmpty())
+                {
+                    //错误信息
+                }
+            </code></example>
+        </member>
+        <member name="M:DBUtilityV2.MAction.#ctor(System.Object,System.String@)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="tableNamesEnum">表名/视图名称,会自动调用ToString方法</param>
+            <param name="error">错误信息</param>
+            <example><code>
+                MAction action=new MAction(TableNames.Users,"Conn");
+            或  MAction action=new MAction(TableNames.Users,"server=.;database=CYQ;uid=sa;pwd=123456");
+                if(!action.MyException.Message.NotNullOrEmpty())
+                {
+                    //错误信息
+                }
+            </code></example>
+        </member>
+        <member name="M:DBUtilityV2.MAction.InitSqlHelper(System.String)">
+            <summary>
+            初始化帮助类库,此处,需要判断MyException,因为在初始化的时候,DalAction.GetConnectionString方法的64行有可能报异常:没有找到默认的连接字符串名称 
+            </summary>
+            <param name="conn">连接字符串</param>
+            <returns>返回MAction对象,允许链式操作</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.InitRow(CYQ.Data.Table.MDataRow)">
+            <summary>
+            初始化行
+            </summary>
+            <param name="row">MdataRow对象</param>
+        </member>
+        <member name="M:DBUtilityV2.MAction.Init(System.Object,System.String)">
+            <summary>
+            初始化
+            </summary>
+            <param name="tableObj">表名</param>
+            <param name="conn">连接字符串</param>
+        </member>
+        <member name="M:DBUtilityV2.MAction.InitSchema(System.String)">
+            <summary>
+            初始化Schema
+            </summary>
+            <param name="tableName">表名</param>
+        </member>
+        <member name="M:DBUtilityV2.MAction.FillTableSchema">
+            <summary>
+            获取Schema,首先从内存检查是否有缓存，有则取出，没有则再次获取数据库架构
+            </summary>
+            <returns>
+            如果成功从缓存中获取Schema,则返回true,如果没有从缓冲中获取到Schema,那么尝试从数据库架构中主动获取,成功返回true,失败返回false
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.FillTableSchema(System.String@)">
+            <summary>
+            获取Schema,首先从内存检查是否有缓存，有则取出，没有则再次获取数据库架构
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.FillSchemaFromCache">
+            <summary>
+            首先从缓存中获取架构信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.GetPrimaryKey">
+            <summary>
+            获取主键
+            </summary>
+            <returns>
+            返回包含逐渐信息的一个List集合,此处集合可能数量为0
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.GetPrimaryKey2">
+            <summary>
+            获取主键
+            </summary>
+            <returns>
+            返回包含逐渐信息的一个List集合,此处集合可能数量为0
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.CheckFirstPrimaryKeyIsString(System.String@,System.String@)">
+            <summary>
+            查看第一个主键是否是string类型
+            </summary>
+            <param name="pkName">主键名称</param>
+            <param name="err">返回的错误信息，如果最终结果返回为false，那么需要检查错误信息是否为空，为空，则表示没有找到主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.ToDataRow(CYQ.Data.Table.MDataColumn)">
+            <summary>
+            列到行
+            </summary>
+            <param name="mdcs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.BeginTransation">
+            <summary>
+            开始事务
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.MAction.EndTransation">
+            <summary>
+            提交结束事务[默认开启事务,直到调用Close/Disponse时才提交事务]
+            如果需要提前结束事务,可调用此方法
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.MAction.RollBack">
+            <summary>
+            事务回滚
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.MAction.TestConnection">
+            <summary>
+            测试链接是否正常
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.ResetTable(System.Object)">
+            <summary>
+            表切换,在A表时，如果需要操作B,不需要重新new一个MAaction,可直接换用本函数切换
+            </summary>
+            <param name="tableObj">要切换的表/视图名</param>
+            <example><code>
+                MAction action = new MAction(TableNames.Users);
+                if (action.Fill("UserName='路过秋天'"))
+                {
+                    int id = action.Get&lt;int&gt;(Users.ID);
+                    if (action.ResetTable(TableNames.Message))
+                    {
+                        //处理Message表
+                        action.Close();
+                     }
+                 }
+            </code></example>
+            <returns>
+            切换成功返回true,否则返回false
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.ResetTable">
+            <summary>
+            切换自身，即使得_Row变为空白，方便后面继续向里面赋值
+            </summary>
+            <returns>
+            切换成功返回true,否则返回false
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.Insert">
+            <summary>
+            插入，执行之前必须执行Set方法，否则，构造SQL语句出错。采用参数化方式插入。关键方法为SQLString对象的GetInsertSql方法
+            调用Set方法以及调用AddParameter方法效果一样,都是添加参数
+            2015-11-11添加规则，最后Set方法、AddParameter方法、SetExpressionPara方法，谁的方法写在最后，谁就会生效，也就是会更新掉之前的参数
+            返回值有四中情况，-2、-1、0、大于零，大体就是说，如果大于等于-1，那么说明至少没有发生异常
+            </summary>
+            <returns>
+            插入成功返回受影响条数,如果返回-2,说明有异常,请检查MyException
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.Insert(System.String@)">
+            <summary>
+            插入，执行之前必须执行Set方法进行赋值，否则，会报错哦,调用set方法以及调用
+            返回值有四中情况，-2、-1、0、大于零，大体就是说，如果大于等于-1，那么说明至少没有发生异常
+            </summary>
+            <example>
+            <code>
+               MAction action = new MAction("Users", conn);
+               string error = string.Empty;
+               int icount2 = action.Set("uname", "uname")
+                                   .Set("pwd", "pwd")
+                                   .Set("date", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"))
+                                   .Insert(out error);
+            </code>
+            </example>
+            <param name="error">错误信息</param>
+            <returns>
+            返回受影响条数
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.Update(System.String)">
+            <summary>
+            更新，支持age=age+2类似方式更新
+            返回值有四中情况，-2、-1、0、大于零，大体就是说，如果大于等于-1，那么说明至少没有发生异常
+            </summary>
+            <example>
+            <code>
+            在sqlite中采用||表示字符串连接 
+            SetExpression部分会当做sql语句直接附加在最终的Update语句中，例如 update age=@age,uname=uname@tbuname 
+            MAction act = new MAction("Users", conn);
+            int ii=act.SetExpression("uname=uname||{0}tbuname".Ex_Format(act.pre))
+                      .SetExpressionPara("tbuname", textBox1.Text, DbType.String)
+                      .AddParameter(LYS.Enum.users.id.ToString(), id)
+                      .Update("id=@@id");
+            </code>
+            </example>
+            <param name="where">不带where字符串的条件</param>
+            <returns>
+            返回受影响的行数,如果返回-2,则请检查MyException
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.Update(System.String,System.String@)">
+            <summary>
+            更新，支持age=age+2类似方式更新
+            返回值有四中情况，-2、-1、0、大于零，大体就是说，如果大于等于-1，那么说明至少没有发生异常
+            </summary>
+            <example>
+            <code>
+            在sqlite中采用||表示字符串连接 
+            SetExpression部分会当做sql语句直接附加在最终的Update语句中，例如 update age=@age,uname=uname@tbuname 
+            MAction act = new MAction("Users", conn);
+            int ii=act.SetExpression("uname=uname||{0}tbuname".Ex_Format(act.pre))
+                      .SetExpressionPara("tbuname", textBox1.Text, DbType.String)
+                      .AddParameter(LYS.Enum.users.id.ToString(), id)
+                      .Update("id=@@id");
+            </code>
+            </example>
+            <param name="where">不带where字符串的条件</param>
+            <param name="error">错误信息</param>
+            <returns>返回受影响的行数</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.ClearParameters">
+            <summary>
+            清空参数列表,这个操作尤其在多次调用update/insert/delete/select之类的时候最好提前手工调用一次
+            </summary>
+            <returns>
+            返回MAction对象,允许链式操作
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.ExecuteNoQuery(System.String)">
+            <summary>
+            执行SQL命令，返回受影响的行数
+            </summary>
+            <param name="cmdSql">sql语句</param>
+            <returns>返回受影响行数</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.ExecuteNoQuery(System.String,System.Data.Common.DbParameter[])">
+            <summary>
+            执行SQL命令，返回受影响的行数
+            </summary>
+            <param name="cmd"></param>
+            <param name="parameters">参数，可以使用AddParameter方法添加参数，然后这个地方使用this.dbParms.ToArray方法</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.ExecuteNonQueryProcedure(System.String)">
+            <summary>
+            执行存储过程，执行完毕后，在获取完输出参数和返回值后，请执行ClearParameters（）,对于insert/update/delete返回受影响的函数，对于其他操作，返回-1，如果返回-2，说明有异常
+            </summary>
+            <param name="procedureName">存储过程名称</param>
+            <returns>返回受影响行数</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.ExecuteNonQueryProcedure(System.String,System.String@)">
+            <summary>
+            执行存储过程，执行完毕后，在获取完输出参数和返回值后，请执行ClearParameters（）,对于insert/update/delete返回受影响的函数，对于其他操作，返回-1，如果返回-2，说明有异常
+            </summary>
+            <param name="procedureName">存储过程</param>
+            <param name="error">错误信息</param>
+            <returns>返回受影响行数</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.ExecuteScalarProcedure(System.String)">
+            <summary>
+            执行存储过程，返回首行首列，执行完毕后，在获取完输出参数和返回值后，请执行ClearParameters（）
+            </summary>
+            <param name="procedureName">存储过程名称</param>
+            <returns>返回首行首列</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.ExecuteDataSetProcedure(System.String)">
+            <summary>
+            执行存储过程，返回一个DataSet
+            </summary>
+            <param name="procedureName">存储过程名称</param>
+            <returns>返回一个DataSet,有可能为null</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.ExecuteDataSetProcedure(System.String,System.String@)">
+            <summary>
+            执行存储过程，返回一个DataSet
+            </summary>
+            <param name="procedureName">存储过程名称</param>
+            <param name="error">错误信息</param>
+            <returns>返回一个DataSet,需要判断error是否为空,如果不为空,则DataSet肯定不为null</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.ExecuteDataTableProcedure(System.String)">
+            <summary>
+            执行存储过程，返回一个DataTable，需要检测是否为Null
+            </summary>
+            <param name="procedureName">存储过程名称</param>
+            <returns>返回一个DataTable</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.AddParameter(System.String,System.Object)">
+            <summary>
+            添加搜索条件中的参数值,此操作必须在Update或者Delete之前,AddParameter方法只需要在参数名称不属于列名的时候才调用,如果属于列名,那么调用Set方法简单.
+            </summary>
+            <param name="columnName">参数名称,一般为列名,有可能为参数化查询表达式中的非列名参数名称</param>
+            <param name="value">对应的参数的值</param>
+            <returns>返回MAction对象,允许链式操作</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.AddOutParameter(System.String)">
+            <summary>
+            添加搜索条件中的参数值，输出参数
+            </summary>
+            <param name="columnName">列名</param>
+            <returns>返回MAction对象,允许链式操作</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.AddOutParameter(System.String,System.Data.DbType,System.Int32)">
+            <summary>
+            添加搜索条件中的参数值，输出参数
+            </summary>
+            <param name="columnName">列名</param>
+            <param name="dbtype">数据类型</param>
+            <param name="size">大小</param>
+            <returns>返回MAction对象,允许链式操作</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.AddReturnParameter(System.String)">
+            <summary>
+            添加返回参数
+            </summary>
+            <param name="columnName">列名</param>
+            <returns>返回MAction对象,允许链式操作</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.SetExpression(System.String)">
+            <summary>
+            设置自定义表达式，解决类似 字段名=字段名+1 问题,此方法主要是针对Update操作
+            </summary>
+            <param name="expresstion">类似 count=count+@Value 或者count=count+1</param>
+            <returns>返回MAction对象,允许链式操作</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.SetExpressionPara(System.String,System.Object,System.Data.DbType)">
+            <summary>
+            设置自定义表达式的参数，需要与SetExpression方法搭配来使用。
+            </summary>
+            <param name="name">自定义表达式中的参数名称</param>
+            <param name="value">自定义表达式的参数的值</param>
+            <param name="dbtype">自定义表达式的参数的类型</param>
+            <returns>返回MAction对象,允许链式操作</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.SetExpressionPara(System.String,System.Object)">
+            <summary>
+            设置自定义表达式的参数，需要与SetExpression方法搭配来使用。此种方式可能比明确设置参数类型的方式慢，不过慢不了多少,此处自动推断参数类型
+            </summary>
+            <param name="name">自定义表达式中的参数名称</param>
+            <param name="value">自定义表达式的参数的值</param>
+            <returns>返回MAction对象,允许链式操作</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.Delete(System.String)">
+            <summary>
+            删除 返回值有四中情况，-2、-1、0、大于零，大体就是说，如果大于等于-1，那么说明至少没有发生异常
+            </summary>
+            <param name="where">条件表达式,不带where字符串</param>
+            <returns>返回受影响的行数,如果返回-2,则请检查MyException</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.Delete(System.String,System.String@)">
+            <summary>
+            删除 返回值有四中情况，-2、-1、0、大于零，大体就是说，如果大于等于-1，那么说明至少没有发生异常
+            </summary>
+            <param name="where">条件表达式,不带where字符串</param>
+            <param name="strError">错误信息</param>
+            <returns>返回受影响的行数</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.GetCount">
+            <summary>
+            获取总数
+            </summary>
+            <returns>返回总数</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.GetCount(System.String)">
+            <summary>
+            取得总数
+            </summary>
+            <param name="where">不带有where的条件字符串</param>
+            <returns>返回总数</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.GetCount(System.String,System.String@)">
+            <summary>
+            取得总数
+            </summary>
+            <param name="where">不带有where的条件字符串</param>
+            <param name="error">错误信息</param>
+            <returns>返回总数</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.GetMax(System.String,System.String)">
+            <summary>
+            返回最大的columnName
+            </summary>
+            <param name="columnName">列名</param>
+            <param name="where">条件表达式,不能带where字符串,写了where也会被首先替换为空字符串</param>
+            <returns>返回最大的columnName的值</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.GetMax(System.String)">
+            <summary>
+            返回最大的columnName
+            </summary>
+            <param name="columnName">列名</param>
+            <returns>返回最大的columnName的值</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.GetMax">
+            <summary>
+            返回主键的最大值
+            </summary>
+            <returns>
+            返回最大的主键,如果主键没有找到,则返回null
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.GetTopOne(System.String,System.String@)">
+            <summary>
+            获取TopOne，返回一个DataTable
+            </summary>
+            <param name="where">条件表达式</param>
+            <param name="error">错误信息</param>
+            <returns>
+            返回类似select top 1 * from table where xxx 结果集
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.GetTopOne(System.String)">
+            <summary>
+            获取TopOne，返回一个DataTable
+            </summary>
+            <param name="where">条件表达式</param>
+            <returns>
+            返回类似select top 1 * from table where xxx 结果集
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.GetRandom(System.Int32,System.String@)">
+            <summary>
+            取得随机数据
+            </summary>
+            <param name="count">数量</param>
+            <param name="error2">错误信息</param>
+            <returns>
+            取得类似select top 5 * from  tab order by newid() 类似结果集
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.GetRandom(System.Int32)">
+            <summary>
+            取得随机数据
+            </summary>
+            <param name="count">数量</param>
+            <returns>
+            取得类似select top 5 * from  tab order by newid() 类似结果集
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.Select">
+            <summary>
+            查询默认表数据
+            </summary>
+            <returns>
+            默认返回全部数据的结果集
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.Select(System.String)">
+            <summary>
+            查询默认表数据，支持参数化查询，肯定不为null，但是不一定有值，故此需要判断
+            </summary>
+            <param name="where">条件表达式</param>
+            <returns>
+            返回类似 select * from tab where xxx 结果集
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.Select(System.String,System.String)">
+            <summary>
+            查询数据，可以过滤列，请注意填写正确的列名，支持参数化查询，肯定不为null，但是不一定有值，故此需要判断
+            </summary>
+            <param name="where">条件</param>
+            <param name="columns">列名,以逗号隔开</param>
+            <returns>返回类似 select id,title from tab where xxx 类似结果集</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.Select(System.Int32,System.Int32)">
+            <summary>
+            获取分页数据
+            </summary>
+            <remarks>
+            相同位置的参数类型不同，也属于重载 20151225
+            </remarks>
+            <param name="pageIndex">页码，如果为0则表示获取全部,这个参数为0,则直接返回全部数据,pageSize参数则无论设置什么均无效</param>
+            <param name="pageSize">每页数量，如果小于或者等于0，则系统自动内部转换为默认值20</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.Select(System.Int32,System.Int32,System.String)">
+            <summary>
+            获取分页数据
+            </summary>
+            <param name="pageIndex">页码，如果为0则表示获取全部,这个参数为0,则直接返回全部数据,pageSize参数则无论设置什么均无效</param>
+            <param name="pageSize">每页数量，如果小于或者等于0，则系统自动内部转换为默认值20</param>
+            <param name="where">条件表达式了，这里不用写where，写了，也会被自动替换掉</param>
+            <returns>返回特定页码的结果集</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.Select(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            获取分页数据,同样支持采用MyException.Message判断是否出现异常情况,故此方法功能同下面的重载方法一样了，支持参数化查询，肯定不为null，但是不一定有值，故此需要判断
+            </summary>
+            <param name="pageIndex">页码，如果为0则表示获取全部,这个参数为0,则直接返回全部数据,pageSize参数则无论设置什么均无效</param>
+            <param name="pageSize">每页数量，如果小于或者等于0，则系统自动内部转换为默认值20</param>
+            <param name="where"></param>
+            <param name="columns">列名</param>
+            <returns>返回特定页码的结果集</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.Select(System.Int32,System.Int32,System.String,System.String,System.String@)">
+            <summary>
+            获取分页数据，肯定不为null，但是需要判断是否有值，同样支持参数化查询
+            </summary>
+            <param name="pageIndex">页码，如果为0则表示获取全部,这个参数为0,则直接返回全部数据,pageSize参数则无论设置什么均无效</param>
+            <param name="pageSize">每页数量，如果小于或者等于0，则系统自动内部转换为默认值20</param>
+            <param name="where">如果为空，则表示获取全部</param>
+            <param name="columns">列名</param>
+            <param name="error">错误信息</param>
+            <returns>返回特定页码的结果集</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.Select(System.Int32,System.Int32,System.String,System.String,System.String@,System.Int32)">
+            <summary>
+            获取分页数据，支持参数化查询，肯定不为null，但是不一定有值，故此需要判断
+            </summary>
+            <param name="pageIndex">页码，如果为0则表示获取全部,这个参数为0,则直接返回全部数据,pageSize参数则无论设置什么均无效</param>
+            <param name="pageSize">每页数量，如果小于或者等于0，则系统自动内部转换为默认值20</param>
+            <param name="where">如果为空，则表示获取全部</param>
+            <param name="columns">列名</param>
+            <param name="error">错误信息</param>
+            <param name="type">分页类型 0：Max分页  1:Top分页</param>
+            <returns>返回特定页码的结果集</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.Query(System.String,System.String@)">
+            <summary>
+            返回查询结果
+            </summary>
+            <param name="where">条件表达式</param>
+            <param name="error">错误信息</param>
+            <returns>返回类似 select * from tab where xxx 结果集</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.GetOne``1(System.String)">
+            <summary>
+            返回单一实体，支持参数化,需要判断是否是null,因为有时候该T可能没有构造函数,如果有构造函数,则不需要判断是否是Null
+            </summary>
+            <typeparam name="T">实体名称</typeparam>
+            <param name="where">条件表达式</param>
+            <returns>
+            返回单一实体
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.GetList``1">
+            <summary>
+            获取一个List列表，区分大小写,这个方法要求实体类中没有可空类型，如果有，则会报错
+            20151221,暂时采用反射方式来转换，防止出现异常情况
+            </summary>
+            <typeparam name="T">实体名称</typeparam>
+            <returns>
+            获取一个List列表，区分大小写
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.GetList``1(System.String)">
+            <summary>
+            获取一个List列表，区分大小写,这个方法要求实体类中没有可空类型，如果有，则会报错
+            20151221,暂时采用反射方式来转换，防止出现异常情况
+            </summary>
+            <typeparam name="T">实体名称</typeparam>
+            <param name="where">条件表达式</param>
+            <returns>
+            获取一个List列表，区分大小写
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.GetListReflect``1(System.String)">
+            <summary>
+            通过反射获取实体集合，这个方法不区分实体类与数据库表字段的大小写,DataTable中字段可以比实体类字段多,如果多,则忽略,如果少,则返回的实体列表中的字段值为null,就是不赋值那种情况
+            同样不要求实体类是否有可空类型，有也可以实现转换
+            返回值肯定不是null，但是需要判断是否有值
+            </summary>
+            <typeparam name="T">实体名称</typeparam>
+            <param name="where">条件表达式</param>
+            <returns>通过反射获取实体集合，这个方法不区分实体类与数据库表字段的大小写</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.Set(System.Object,System.Object)">
+            <summary>
+            设置值,例如:[action.Set(TableName.ID,10);]
+            </summary>
+            <param name="key">字段名称,可用枚举如:[TableName.ID],自动调用ToString()方法</param>
+            <param name="value">要设置给字段的值</param>
+            <example><code>
+            set示例：action.Set(Users.UserName,"路过秋天");
+            get示例：int id=action.Get&lt;int&gt;(Users.ID);
+            </code></example>
+            <returns>返回MAction对象,允许链式操作</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.Exists(System.Object)">
+            <summary>
+            是否存在指定条件的数据 
+            </summary>
+            <param name="where">where条件,不能带有where字符串</param>
+            <returns>
+            存在返回true,否则返回false
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.NotExists(System.Object)">
+            <summary>
+            是否不存在指定条件的数据 
+            </summary>
+            <param name="where">where条件,不能带有where字符串</param>
+            <returns>
+            存在返回true,否则返回false
+            </returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.SetEntityToMDataRow(System.Object)">
+            <summary>
+            通过反射，使实体的各个属性赋值给MAction对象的MDataRow的各个列,不需要保证实体类和MAction.Data的各个列名大小写一致
+            如果实体类定义的成员变量对于数据库中表的列,则忽略此成员变量
+            这相当于多次调用Set方法
+            </summary>
+            <param name="obj">实体对象</param>
+            <remarks>
+            为了能够使用链式操作，这里返回MAction对象
+            </remarks>
+        </member>
+        <member name="M:DBUtilityV2.MAction.SetMDataRowToEntity(System.Object)">
+            <summary>
+            通过反射，把MAction的MDataRow中的列的各个值赋值给实体的各个属性
+            如果对象的属性为null，则这个属性也不会被赋予值，请特别注意，尤其是针对于自增长字段，需要设置为null，否则会导致错误
+            </summary>
+            <param name="obj">实体对象</param>
+            <remarks>
+            为了使用链式操作，这里返回MAction对象
+            </remarks>
+            <returns>为了能够使用链式操作，这里返回MAction对象</returns>
+        </member>
+        <member name="M:DBUtilityV2.MAction.Get``1(System.Object)">
+            <summary>
+            获取属性值,调用这个方法的前提是MDataRow需要有值
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="key">属性名称</param>
+            <returns>
+            返回属性值
+            </returns>
+        </member>
+        <member name="P:DBUtilityV2.MAction.Data">
+            <summary>
+            Fill完之后返回的行数据
+            </summary>
+        </member>
+        <member name="P:DBUtilityV2.MAction.TableName">
+            <summary>
+            当前操作的表名
+            </summary>
+        </member>
+        <member name="P:DBUtilityV2.MAction.ConnectionString">
+            <summary>
+            当前数据库链接字符串
+            </summary>
+        </member>
+        <member name="P:DBUtilityV2.MAction.DalType">
+            <summary>
+            当前操作的数据库类型[Access/Mssql/Oracle/SQLite等]
+            </summary>
+        </member>
+        <member name="T:CYQ.Data.Table.CellValue">
+            <summary>
+            单元值
+            </summary>
+        </member>
+        <member name="T:CYQ.Data.Table.CellStruct">
+            <summary>
+            单元结构属性
+            </summary>
+        </member>
+        <member name="F:CYQ.Data.Table.CellStruct.IsCanNull">
+            <summary>
+            是否可以为Null
+            </summary>
+        </member>
+        <member name="F:CYQ.Data.Table.CellStruct.IsReadOnly">
+            <summary>
+            是否只读
+            </summary>
+        </member>
+        <member name="F:CYQ.Data.Table.CellStruct.IsAutoIncrement">
+            <summary>
+            是否自动增长
+            </summary>
+        </member>
+        <member name="F:CYQ.Data.Table.CellStruct.ColumnName">
+            <summary>
+            列名
+            </summary>
+        </member>
+        <member name="F:CYQ.Data.Table.CellStruct.SqlType">
+            <summary>
+            SqlDbType
+            </summary>
+        </member>
+        <member name="F:CYQ.Data.Table.CellStruct.MaxSize">
+            <summary>
+            最大长度
+            </summary>
+        </member>
+        <member name="F:CYQ.Data.Table.CellStruct.Operator">
+            <summary>
+            操作符
+            </summary>
+        </member>
+        <member name="F:CYQ.Data.Table.CellStruct.ParaDirection">
+            <summary>
+            方向
+            </summary>
+        </member>
+        <member name="M:CYQ.Data.Table.CellStruct.#ctor(System.String,System.Data.SqlDbType,System.Boolean,System.Boolean,System.Int32,System.Data.ParameterDirection)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="columnName"></param>
+            <param name="sqlType"></param>
+            <param name="isReadOnly"></param>
+            <param name="isCanNull"></param>
+            <param name="maxSize"></param>
+            <param name="paraDirection"></param>
+        </member>
+        <member name="M:CYQ.Data.Table.CellStruct.#ctor(System.String,System.Data.SqlDbType,System.Boolean,System.Boolean,System.Int32,System.Data.ParameterDirection,System.Boolean)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="columnName"></param>
+            <param name="sqlType"></param>
+            <param name="isReadOnly"></param>
+            <param name="isCanNull"></param>
+            <param name="maxSize"></param>
+            <param name="paraDirection"></param>
+            <param name="AutoIncrement">是否自增长</param>
+        </member>
+        <member name="T:CYQ.Data.Table.MDataCell">
+            <summary>
+            单元格
+            </summary>
+        </member>
+        <member name="P:CYQ.Data.Table.MDataCell.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="T:CYQ.Data.Table.MDataColumn">
+            <summary>
+            头列表集合
+            </summary>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataColumn.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataColumn.Clone">
+            <summary>
+            克隆
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataColumn.GetIndex(System.String)">
+            <summary>
+            获取列所在的索引位置
+            </summary>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataColumn.Contains(System.String)">
+            <summary>
+            是否存在列名
+            </summary>
+            <param name="columnName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataColumn.Add(System.String)">
+            <summary>
+            添加列
+            </summary>
+            <param name="columnName"></param>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataColumn.Add(System.String,System.Data.SqlDbType)">
+            <summary>
+            添加列
+            </summary>
+            <param name="columnName"></param>
+            <param name="SqlType"></param>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataColumn.Remove(System.String)">
+            <summary>
+            移除列
+            </summary>
+            <param name="columnName"></param>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataColumn.RemoveAt(System.Int32)">
+            <summary>
+            移除列
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="T:CYQ.Data.Table.MDataRow">
+            <summary>
+            一行记录
+            </summary>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataRow.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataRow.GetItemValue(System.Int32)">
+            <summary>
+            此方法为Emit所调用编写。
+            </summary>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataRow.Get``1(System.Object)">
+            <summary>
+            取值
+            </summary>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataRow.Clear">
+            <summary>
+            将行的数据行的值全重置为Null
+            </summary>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataRow.Set(System.Object,System.Object)">
+            <summary>
+            设置内容
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataRow.ToTable">
+            <summary>
+            转化为table
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataRow.LoadValue(CYQ.Data.Table.MDataRow)">
+            <summary>
+            从别的行加载值[不改变自身结构及引用]
+            </summary>
+            <param name="row"></param>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataRow.ToEntity``1">
+            <summary>
+            转成实体
+            </summary>
+            <typeparam name="T">实体名称</typeparam>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataRow.Clone">
+            <summary>
+            克隆
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataRow.GetAttributes">
+            <summary>
+            返回AttributeCollection
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataRow.GetClassName">
+            <summary>
+            返回字符串MDataRow
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataRow.GetComponentName">
+            <summary>
+            返回字符串CYQ.Data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataRow.GetConverter">
+            <summary>
+            返回TypeConverter
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataRow.GetDefaultEvent">
+            <summary>
+            返回EventDescriptor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataRow.GetDefaultProperty">
+            <summary>
+            返回PropertyDescriptor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataRow.GetEditor(System.Type)">
+            <summary>
+            返回GetEditor
+            </summary>
+            <param name="editorBaseType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataRow.GetEvents(System.Attribute[])">
+            <summary>
+            返回EventDescriptorCollection
+            </summary>
+            <param name="attributes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataRow.GetEvents">
+            <summary>
+            返回EventDescriptorCollection
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataRow.GetProperties(System.Attribute[])">
+            <summary>
+            返回PropertyDescriptorCollection
+            </summary>
+            <param name="attributes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataRow.GetProperties">
+            <summary>
+            获取PropertyDescriptorCollection
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataRow.GetPropertyOwner(System.ComponentModel.PropertyDescriptor)">
+            <summary>
+            获取PropertyOwner
+            </summary>
+            <param name="pd"></param>
+            <returns></returns>
+        </member>
+        <member name="P:CYQ.Data.Table.MDataRow.TableName">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="P:CYQ.Data.Table.MDataRow.Item(System.Object)">
+            <summary>
+            输入枚举型数据
+            </summary>
+        </member>
+        <member name="P:CYQ.Data.Table.MDataRow.Item(System.String)">
+            <summary>
+            索引
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CYQ.Data.Table.MDataTable">
+            <summary>
+            表格
+            </summary>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.op_Implicit(System.Data.Common.DbDataReader)~CYQ.Data.Table.MDataTable">
+            <summary>
+            从DataReader隐式转换成MDataTable
+            </summary>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="tableName"></param>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.NewRow">
+            <summary>
+            新增咧
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.ToDataTable">
+            <summary>
+            转换成DataTable
+            </summary>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.LoadFromJson(System.String)">
+            <summary>
+            从Json字符串反加载成MDataTable
+            </summary>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.ToJson">
+            <summary>
+            输出Json字符串
+            </summary>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.Bind(System.Object)">
+            <summary>
+            将数据表绑定到列表控件,舍弃，我也不用这个来绑定数据，故此舍弃该方法，同时会去掉MBindUI.cs类文件，精简项目。
+            </summary>
+            <param name="control">列表控件[包括Repeater/DataList/GridView/DataGrid等]</param>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.ToList``1(System.Boolean[])">
+            <summary>
+            转实体列表
+            </summary>
+            <param name="useEmit">是否使用Emit方式转换[数据越多[大于500条]性能越高],不写默认自适应判断</param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.Close">
+            <summary>
+            克隆
+            </summary>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetSchemaTable">
+            <summary>
+            为实现
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.NextResult">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.Read">
+            <summary>
+            是否可读
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetBoolean(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetByte(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetBytes(System.Int32,System.Int64,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="i"></param>
+            <param name="fieldOffset"></param>
+            <param name="buffer"></param>
+            <param name="bufferoffset"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetChar(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetChars(System.Int32,System.Int64,System.Char[],System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="i"></param>
+            <param name="fieldoffset"></param>
+            <param name="buffer"></param>
+            <param name="bufferoffset"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetData(System.Int32)">
+            <summary>
+            获取IDataReader
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetDataTypeName(System.Int32)">
+            <summary>
+            尚未实现
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetDateTime(System.Int32)">
+            <summary>
+            获取日期
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetDecimal(System.Int32)">
+            <summary>
+            获取Decimal
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetDouble(System.Int32)">
+            <summary>
+            获取Double
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetFieldType(System.Int32)">
+            <summary>
+            获取Type
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetFloat(System.Int32)">
+            <summary>
+            获取Float
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetGuid(System.Int32)">
+            <summary>
+            获取GUID
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetInt16(System.Int32)">
+            <summary>
+            获取int16
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetInt32(System.Int32)">
+            <summary>
+            获取int32
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetInt64(System.Int32)">
+            <summary>
+            获取Long
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetName(System.Int32)">
+            <summary>
+            获取列名
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetOrdinal(System.String)">
+            <summary>
+            获取int
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetString(System.Int32)">
+            <summary>
+            获取字符串
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetValue(System.Int32)">
+            <summary>
+            获取
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetValues(System.Object[])">
+            <summary>
+            获取
+            </summary>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.IsDBNull(System.Int32)">
+            <summary>
+            是否为DBNull
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetEnumerator">
+            <summary>
+            返回IEnumerator
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CYQ.Data.Table.MDataTable.GetList">
+            <summary>
+            返回所有行
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:CYQ.Data.Table.MDataTable.Rows">
+            <summary>
+            MDataRow
+            </summary>
+        </member>
+        <member name="P:CYQ.Data.Table.MDataTable.TableName">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="P:CYQ.Data.Table.MDataTable.Columns">
+            <summary>
+            列名
+            </summary>
+        </member>
+        <member name="P:CYQ.Data.Table.MDataTable.Depth">
+            <summary>
+            深度
+            </summary>
+        </member>
+        <member name="P:CYQ.Data.Table.MDataTable.IsClosed">
+            <summary>
+            是否关闭
+            </summary>
+        </member>
+        <member name="P:CYQ.Data.Table.MDataTable.RecordsAffected">
+            <summary>
+            受影响数量
+            </summary>
+        </member>
+        <member name="P:CYQ.Data.Table.MDataTable.FieldCount">
+            <summary>
+            字段数量
+            </summary>
+        </member>
+        <member name="P:CYQ.Data.Table.MDataTable.Item(System.String)">
+            <summary>
+            索引
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="P:CYQ.Data.Table.MDataTable.Item(System.Int32)">
+            <summary>
+            索引
+            </summary>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="P:CYQ.Data.Table.MDataTable.ContainsListCollection">
+            <summary>
+            是否包含
+            </summary>
+        </member>
+        <member name="T:DBUtilityV2.SchemaAction">
+            <summary>
+            表结构类
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.SchemaAction.GetColumn(System.String,DBUtilityV2.DBHelperP@)">
+            <summary>
+            获取表结构
+            </summary>
+            <param name="tableName"></param>
+            <param name="helper"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.SchemaAction.GetColumn2(System.String,DBUtilityV2.DBHelperP@)">
+            <summary>
+            获取表结构
+            </summary>
+            <param name="tableName"></param>
+            <param name="helper"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DBUtilityV2.SQLString">
+            <summary>
+            数据操作语句类
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.SQLString._tableName">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.SQLString._formatTableName">
+            <summary>
+            格式化后的表名
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.SQLString._expresstionsls">
+            <summary>
+            自定义表达式
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.SQLString._dataSqlHelper">
+            <summary>
+            dbHelper帮助类的实例
+            </summary>
+        </member>
+        <member name="F:DBUtilityV2.SQLString.DbParms">
+            <summary>
+            参数
+            </summary>
+        </member>
+        <member name="M:DBUtilityV2.SQLString.#ctor(CYQ.Data.Table.MDataRow@,DBUtilityV2.DBHelperP@,System.Collections.Generic.List{System.String})">
+            <summary>
+            加入自定义表达式的支持
+            </summary>
+            <param name="row"></param>
+            <param name="helper"></param>
+            <param name="expresstions"></param>
+        </member>
+        <member name="M:DBUtilityV2.SQLString.GetDeleteSql(System.Object)">
+            <summary>
+            返回delete语句
+            </summary>
+            <param name="where">不带where的条件表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.SQLString.GetInsertSql">
+            <summary>
+            返回插入的字符串 调用set方法填充
+            </summary>
+            <returns>结果如:insert into tableName(ID,Name,Value) values(@ID,@Name,@Value)</returns>
+        </member>
+        <member name="M:DBUtilityV2.SQLString.GetInsertSql2">
+            <summary>
+            返回插入的字符串 调用AddParameter方法填充
+            </summary>
+            <returns>结果如:insert into tableName(ID,Name,Value) values(@ID,@Name,@Value)</returns>
+        </member>
+        <member name="M:DBUtilityV2.SQLString.GetUpdateSql(System.Object)">
+            <summary>
+            返回不包括Where条件的字符串
+            </summary>
+            <returns>结果如:Update tableName set Name=@Name,Value=@Value</returns>
+        </member>
+        <member name="M:DBUtilityV2.SQLString.GetCountSql(System.String)">
+            <summary>
+            获取总数
+            </summary>
+            <param name="where"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.SQLString.GetTopOneSql(System.Object)">
+            <summary>
+            获取第一个
+            </summary>
+            <param name="where"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.SQLString.GetRandom(System.Int32)">
+            <summary>
+            取得随机数据
+            </summary>
+            <param name="count">数量</param>
+            <returns>取得随机数据</returns>
+        </member>
+        <member name="M:DBUtilityV2.SQLString.FormatTableName(System.String,DBUtilityV2.DatabaseTypes)">
+            <summary>
+            格式化表名，因为数据库类型原因导致sql语句中对于表名的写法也不一致
+            </summary>
+            <param name="name"></param>
+            <param name="dalType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBUtilityV2.SQLString.FormatColumnName(System.String,DBUtilityV2.DatabaseTypes)">
+            <summary>
+            格式化字段名，同上
+            </summary>
+            <param name="name"></param>
+            <param name="dalType"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
